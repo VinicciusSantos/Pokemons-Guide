@@ -1,0 +1,41 @@
+.container {
+  background-image: linear-gradient(115deg,  0, var(--primary-2) 100%);
+
+  background-image: linear-gradient(115deg, var(--primary-1) 0, var(--primary-2) 100%);
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  main {
+    width: 60%;
+    height: 70%;
+
+    box-shadow: 3px 3px 3px var(--black-transparence-15);
+    background-color: var(--tertiary-1) !important;
+    border-radius: 5px;
+
+    display: flex;
+
+    #leftBanner {
+      width: 40%;
+      height: 100%;
+
+      background-image: url("../../../assets/background_login.jpg");
+      background-size: cover;
+      background-position: center;
+
+      border-radius: 5px 0px 0px 5px;
+    }
+
+    #contForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      padding: 20px;
+    }
+  }
+}
