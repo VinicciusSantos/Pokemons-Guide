@@ -5,7 +5,7 @@ import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
 })
 export class ThemeService {
   private renderer: Renderer2;
-  private colorTheme: any = "light-mode";
+  private colorTheme: any = 'light-mode';
 
   constructor(rendererFactory: RendererFactory2) {
     this.renderer = rendererFactory.createRenderer(null, null);
@@ -18,7 +18,8 @@ export class ThemeService {
 
   update(theme: 'dark-mode' | 'light-mode') {
     this.setColorTheme(theme);
-    const previousColorTheme = theme === 'dark-mode' ? 'light-mode' : 'dark-mode';
+    const previousColorTheme =
+      theme === 'dark-mode' ? 'light-mode' : 'dark-mode';
     this.renderer.removeClass(document.body, previousColorTheme);
     this.renderer.addClass(document.body, theme);
   }

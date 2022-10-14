@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
-import { ToggleThemeComponent } from './components/toggle-theme/toggle-theme.component';
+import { ToggleThemeComponent } from './components/toggle-theme/ToggleThemeComponent';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -27,7 +27,7 @@ registerLocaleData(en);
     LoginComponent,
     HomeComponent,
     FavoritosComponent,
-    ToggleThemeComponent
+    ToggleThemeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,11 +38,9 @@ registerLocaleData(en);
     ReactiveFormsModule,
     NzFormModule,
     NzInputModule,
-    NzIconModule
+    NzIconModule,
   ],
-  providers: [
-    { provide: NZ_I18N, useValue: en_US }
-  ],
-  bootstrap: [AppComponent]
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
