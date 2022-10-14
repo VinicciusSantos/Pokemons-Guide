@@ -3,7 +3,23 @@
   <main>
     <div id="leftBanner"></div>
     <div id="contForm">
-      <img src="../../../assets/title.png" alt="" width="70%">
+      <img src="../../../assets/title.png" alt="title" width="80%">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        
+        <input 
+          type="text"
+          formControlName="usuario"
+          placeholder="username"
+        />
+
+        <input
+          type="password"
+          formControlName="senha"
+          placeholder="password"
+        />
+
+        <button type="submit" class="btn-secondary">LOGIN</button>
+      </form>
     </div>
   </main>
 </div>

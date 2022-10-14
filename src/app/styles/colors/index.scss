@@ -1,0 +1,46 @@
+:root {
+    --black: #000;
+    --black-transparence-90: #000000e5;
+    --black-transparence-75: #000000bf;
+    --black-transparence-60: #00000099;
+    --black-transparence-45: #00000073;
+    --black-transparence-30: #0000004d;
+    --black-transparence-15: #00000026;
+  
+    --white: #fff;
+    --white-transparence-90: #ffffffe5;
+    --white-transparence-75: #ffffffbf;
+    --white-transparence-60: #ffffff99;
+    --white-transparence-45: #ffffff73;
+    --white-transparence-30: #ffffff4d;
+    --white-transparence-15: #ffffff26;
+  }
+  
+  :root .light-mode, :root {
+    --primary-1: #fff6a4;
+    --primary-2: #f6bd20;
+    --primary-3: #de9400;
+    --primary-4: #623108;
+  
+    --secondary-1: #c52018;
+    --secondary-2: #e65a41;
+    --secondary-3: rgb(211, 38, 29);
+  
+    --tertiary-1: #fff;
+    --tertiary-2: #eee;
+    --tertiary-3: #ddd;
+  }
+  
+  :root .dark-mode  {
+    --primary-1: #fff6a4;
+    --primary-2: #f6bd20;
+    --primary-3: #de9400;
+    --primary-4: #623108;
+  
+    --secondary-1: #c52018;
+    --secondary-2: #e65a41;
+  
+    --tertiary-1: #737383;
+    --tertiary-2: #41414a;
+    --tertiary-3: #292929;
+  }

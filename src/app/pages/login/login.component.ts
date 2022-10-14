@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { UntypedFormBuilder, UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
+import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 
 @Component({
   selector: 'app-login',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor() { }
+  loginForm!: UntypedFormGroup;
+  
+  constructor(private formBuilder: UntypedFormBuilder) {}
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      usuario: [null, [Validators.required]],
+      senha: [null, [Validators.required]]
+    });
   }
 
+  onSubmit(){
+    console.log(this.loginForm.value)
+  }
 }

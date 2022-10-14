@@ -1,0 +1,15 @@
+.btn-secondary {
+  border: 0;
+  border-radius: 5px;
+  width: 100%;
+  padding: 6px;
+  color: var(--white);
+  background-color: var(--secondary-1);
+  transition-duration: .2s;
+  font-size: 20px;
+  
+  &:hover {
+    background-color: var(--secondary-3);
+    transition-duration: .2s;
+  }
+}

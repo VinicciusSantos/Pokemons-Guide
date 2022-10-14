@@ -10,7 +10,7 @@
   align-items: center;
 
   main {
-    width: 60%;
+    width: 50vw;
     height: 70%;
 
     box-shadow: 3px 3px 3px var(--black-transparence-15);
@@ -20,7 +20,7 @@
     display: flex;
 
     #leftBanner {
-      width: 40%;
+      width: 25vw;
       height: 100%;
 
       background-image: url("../../../assets/background_login.jpg");
@@ -35,7 +35,30 @@
       flex-direction: column;
       align-items: center;
 
-      padding: 20px;
+      padding: 1vh 1vw;
+      width: 25vw;
+
+      img {
+        margin-top: 20px;
+      }
+
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+
+        input {
+          padding: 5px;
+          border: 1px solid #333;
+          border-radius: 5px;
+          font-size: 18px;
+        }
+
+        input + input {
+          margin: 10px 0px;
+        }
+      }
     }
   }
 }
