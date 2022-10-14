@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
-import { ToggleThemeComponent } from './components/toggle-theme/ToggleThemeComponent';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -18,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { ToggleThemeComponent } from './components/toggle-theme/toggle-theme.component';
 
 registerLocaleData(en);
 
