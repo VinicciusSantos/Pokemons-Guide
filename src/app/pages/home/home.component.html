@@ -1,5 +1,9 @@
 <div id="container">
   <app-header></app-header>
-  <input type="search" name="" />
-  <div id="contCards"></div>
+  <input type="search" placeholder="pesquisar pokémon" />
+  <div id="contCards">
+    <app-card-pokemon
+      *ngFor="let pok of pokemons"
+      [pokemon]="pok"></app-card-pokemon>
+  </div>
 </div>

@@ -20,6 +20,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ToggleThemeComponent } from './components/toggle-theme/toggle-theme.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CardPokemonComponent } from './components/card-pokemon/card-pokemon.component';
 
 registerLocaleData(en);
 
@@ -31,6 +32,7 @@ registerLocaleData(en);
     FavoritosComponent,
     ToggleThemeComponent,
     HeaderComponent,
+    CardPokemonComponent,
   ],
   imports: [
     BrowserModule,

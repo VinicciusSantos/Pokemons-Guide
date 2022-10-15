@@ -1,6 +1,6 @@
+import { Pokemon } from './../../models/pokemon-id/pokemon';
 import { PokemonsService } from './../../services/pokemons.service';
 import { Component, OnInit } from '@angular/core';
-import { RootObject } from 'src/app/models/root-response/root-object';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +11,15 @@ export class HomeComponent implements OnInit {
   constructor(private pokemonsService: PokemonsService) {}
 
   qtd!: number | null;
-  pokemons!: RootObject;
+  pokemons: Pokemon[] = [];
+
   ngOnInit() {
-    this.pokemonsService
-      .getPokemons(this.qtd)
-      .subscribe(res => (this.pokemons = res));
-    console.log(this.pokemons);
+    this.pokemonsService.getPokemons(this.qtd).subscribe(res => {
+      res.results.forEach(pok => {
+        this.pokemonsService.getOnePokemon(pok.name).subscribe(res => {
+          this.pokemons.push(res);
+        });
+      });
+    });
   }
 }

@@ -2,7 +2,7 @@ import { Sprites } from './sprites';
 import { Form } from './form';
 import { Ability } from './ability';
 
-export interface RootObject {
+export interface Pokemon {
   abilities: Ability[];
   base_experience: number;
   forms: Form[];
