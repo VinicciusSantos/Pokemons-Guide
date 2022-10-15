@@ -2,4 +2,19 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--tertiary-2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  #contCards {
+    width: 90vw;
+    height: 100%;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: var(--tertiary-1);
+    border-radius: 10px 10px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
 }

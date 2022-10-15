@@ -1,16 +1,18 @@
 #container {
+  width: 100vw;
   height: 55px;
   background-color: var(--primary-1);
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 3px 3px 3px var(--black-transparence-15);
-  padding: 0 15px;
 
   section {
+    margin-left: 15px;
     height: 100%;
     display: flex;
     align-items: center;
+    margin: 0 15px;
   }
 
   img {
@@ -19,11 +21,11 @@
 
   nav {
     height: 100%;
-    margin-left: 20px;
 
     ul {
       display: flex;
       height: 100%;
+      margin-left: 20px;
 
       li {
         height: 100%;
