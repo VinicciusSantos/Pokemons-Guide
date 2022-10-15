@@ -1,7 +1,7 @@
 #container {
   width: 100vw;
   height: 55px;
-  background-color: var(--primary-1);
+  background-color: var(--secondary-1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +37,7 @@
         transition-duration: 0.2s;
 
         a {
-          color: var(--black-transparence-75);
+          color: var(--white-transparence-90);
           text-decoration: none;
           font-weight: bold;
           font-style: none;
@@ -56,12 +56,12 @@
           content: '';
           height: 4px;
           border-radius: 2px;
-          background-color: var(--black-transparence-30);
+          background-color: var(--white-transparence-30);
         }
 
         &:hover {
           transition-duration: 0.2s;
-          background-color: var(--primary-2);
+          background-color: var(--secondary-2);
         }
       }
     }
@@ -74,14 +74,14 @@
 
     a, span {
       transition-duration: 0.2s;
-      color: var(--black-transparence-75);
+      color: var(--white-transparence-90);
       height: 100%;
       display: flex;
       align-items: center;
 
       &:hover {
         transition-duration: 0.2s;
-        color: var(--black);
+        color: var(--white);
       }
     }
 

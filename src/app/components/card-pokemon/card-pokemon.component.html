@@ -1,2 +1,9 @@
-<p *ngIf="pokemon">{{ pokemon.id }}</p>
-<p>a</p>
+<div id="container" *ngIf="pokemon">
+  <h2>{{ pokemon.name }}</h2>
+  <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+  <div
+    id="background"
+    [ngStyle]="{
+      'background-image': 'url(' + pokemon.sprites.front_default + ')'
+    }"></div>
+</div>
