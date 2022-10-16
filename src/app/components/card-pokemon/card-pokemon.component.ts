@@ -9,4 +9,9 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardPokemonComponent {
   @Input() pokemon!: Pokemon;
   constructor() {}
+
+  isModalOpen: boolean = false;
+  changeModal(isOpen: boolean) {
+    this.isModalOpen = isOpen;
+  }
 }

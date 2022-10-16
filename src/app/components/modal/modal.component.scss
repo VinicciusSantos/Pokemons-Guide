@@ -1,0 +1,32 @@
+.modal-open {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 2s;
+
+  #background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--black-transparence-30);
+    transition-duration: .5s;
+    z-index: 1;
+  }
+
+  #content {
+    z-index: 2;
+    width: 40%;
+    height: 80%;
+    background-color: var(--tertiary-1);
+    border-radius: 15px;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,11 @@
+<div
+  [ngClass]="{
+    'modal-open': isOpen,
+    'modal-closed': !isOpen
+  }"
+  *ngIf="isOpen">
+  <div id="content">
+    <p>modal works!</p>
+  </div>
+  <div id="background" (click)="changeModal()"></div>
+</div>

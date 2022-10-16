@@ -21,6 +21,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { ToggleThemeComponent } from './components/toggle-theme/toggle-theme.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CardPokemonComponent } from './components/card-pokemon/card-pokemon.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 registerLocaleData(en);
 
@@ -33,6 +34,7 @@ registerLocaleData(en);
     ToggleThemeComponent,
     HeaderComponent,
     CardPokemonComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
