@@ -1,6 +1,14 @@
 <div id="container" *ngIf="pokemon" (click)="changeModal(true)">
   <h2>{{ pokemon.name }}</h2>
   <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+
+  <div id="contTypes">
+    <img
+      *ngFor="let tipo of pokemon.types"
+      [title]="'type ' + tipo.type.name"
+      [src]="'../../../assets/types/' + tipo.type.name + '.png'" />
+  </div>
+
   <div
     id="background"
     [ngStyle]="{

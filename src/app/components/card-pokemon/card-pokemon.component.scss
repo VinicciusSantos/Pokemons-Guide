@@ -27,12 +27,27 @@
     z-index: -1;
   }
 
-  img {
+  > img {
     width: 80%;
     outline: 5px solid var(--white-transparence-15);
     background-color: var(--white);
     border-radius: 50%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+  }
+
+  #contTypes {
+    width: calc(90% - 20px);
+    border-radius: 5px;
+    background-color: var(--white-transparence-45);
+    margin-bottom: 30px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 45px;
+    }
   }
 
   #background {
