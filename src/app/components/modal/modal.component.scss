@@ -8,7 +8,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition-duration: 2s;
 
   #background {
     position: absolute;
@@ -19,14 +18,73 @@
     background-color: var(--black-transparence-30);
     transition-duration: .5s;
     z-index: 1;
+    animation: open-background .5s;
   }
 
-  #content {
+  .bg-closing {
+    animation: close-background .5s;
+  }
+
+  img {
     z-index: 2;
+    width: 100px;
+    animation: pokeballIn .7s;
+    animation-fill-mode: forwards;
+    position: absolute;
+  }
+
+  .content {
+    visibility: hidden;
+    z-index: 2;
+    animation: open .4s .6s;
+    animation-fill-mode: forwards;
     width: 40%;
     height: 80%;
     background-color: var(--tertiary-1);
     border-radius: 15px;
     padding: 20px;
   }
+
+  .content-closing {
+    animation: close .5s;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes open {
+  from {
+    visibility: visible;
+    transform: scale(0);
+  }
+  to {
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+@keyframes close {
+  from {
+    visibility: visible;
+    transform: tranlateY(0);
+  }
+  to {
+    visibility: visible;
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes open-background {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes close-background {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes pokeballIn {
+  0% { transform: translateY(100vh) rotate(360deg); }
+  70% { transform: translateY(0) rotate(-360deg); }
+  100% { transform: scale(.01); }
 }

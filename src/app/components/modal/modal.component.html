@@ -4,8 +4,12 @@
     'modal-closed': !isOpen
   }"
   *ngIf="isOpen">
-  <div id="content">
+  <div class="content" [ngClass]="{ 'content-closing': isClosing }">
     <p>modal works!</p>
   </div>
-  <div id="background" (click)="changeModal()"></div>
+  <img src="../../../assets//pokeball.png" alt="pokeball" />
+  <div
+    id="background"
+    (click)="changeModal()"
+    [ngClass]="{ 'bg-closing': isClosing }"></div>
 </div>

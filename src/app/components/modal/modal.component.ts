@@ -1,5 +1,6 @@
 import { Pokemon } from './../../models/pokemon-id/pokemon';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-modal',
@@ -12,8 +13,13 @@ export class ModalComponent {
   @Output() isOpenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
   constructor() {}
 
+  isClosing = false;
   changeModal() {
-    this.isOpen = !this.isOpen;
-    this.isOpenChange.emit(this.isOpen);
+    this.isClosing = true;
+    setTimeout(() => {
+      this.isOpen = !this.isOpen;
+      this.isOpenChange.emit(this.isOpen);
+      this.isClosing = false;
+    }, 500);
   }
 }
