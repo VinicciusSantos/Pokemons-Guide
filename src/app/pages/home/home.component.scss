@@ -7,13 +7,63 @@
   flex-direction: column;
   align-items: center;
 
+  #contFiltros {
+    display: flex;
+    width: 90vw;
+    margin: 15px 0;
+
+    #contInput {
+      display: flex;
+      align-items: center;
+      background-color: var(--tertiary-1);
+      padding: 5px 15px;
+      border-radius: 5px;
+      width: 30%;
+
+      * {
+        color: var(--font-color);
+        font-size: 15px;
+        line-height: 15px;
+      }
+
+      input {
+        background-color: transparent;
+        margin-left: 10px;
+        border: 0;
+        outline: none;
+        width: 100%;
+      }
+    }
+
+    .filterButton {
+      height: 100%;
+      padding: 0 10px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 5px;
+      background-color: var(--tertiary-1);
+      color: var(--font-color);
+
+    }
+
+    .menu-dropdown {
+      border: none;
+      box-shadow: 0 0 3px var(--black-transparence-15);
+      background-color: var(--tertiary-1);
+      color: var(--font-color);
+    }
+
+    form {
+      text-transform: capitalize;
+    }
+  }
+
   #contCards {
     z-index: 1;
     overflow-y: scroll;
     width: 90vw;
     height: 100%;
     padding: 15px;
-    margin-top: 30px;
     background-color: var(--tertiary-1);
     border-radius: 10px 10px 0 0;
     display: grid;

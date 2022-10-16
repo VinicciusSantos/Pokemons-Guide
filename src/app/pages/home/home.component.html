@@ -1,6 +1,39 @@
 <div id="container">
   <app-header></app-header>
-  <input type="search" placeholder="pesquisar pokémon" />
+
+  <div id="contFiltros">
+    <div id="contInput">
+      <span nz-icon nzType="search" nzTheme="outline"></span>
+      <input type="search" placeholder="Search here..." />
+    </div>
+
+    <div ngbDropdown class="d-inline-block">
+      <button type="button" class="filterButton" ngbDropdownToggle>
+        Filter
+      </button>
+      <div
+        class="menu-dropdown"
+        ngbDropdownMenu
+        aria-labelledby="dropdownForm1">
+        <form class="px-4 py-3">
+          <div class="form-check" *ngFor="let tipo of types">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="dropdownCheck" />
+            <label class="form-check-label" for="dropdownCheck">
+              <img
+                [src]="'../../../assets/types/' + tipo + '.png'"
+                [alt]="tipo"
+                width="15px" />
+              {{ tipo }}
+            </label>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
   <div id="contCards">
     <app-card-pokemon
       *ngFor="let pok of pokemons"

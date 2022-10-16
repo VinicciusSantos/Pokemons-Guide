@@ -2,6 +2,27 @@ import { Pokemon } from './../../models/pokemon-id/pokemon';
 import { PokemonsService } from './../../services/pokemons.service';
 import { Component, OnInit } from '@angular/core';
 
+const types = [
+  'normal',
+  'fire',
+  'water',
+  'grass',
+  'flying',
+  'fighting',
+  'poison',
+  'electric',
+  'ground',
+  'rock',
+  'psychic',
+  'ice',
+  'bug',
+  'ghost',
+  'steel',
+  'dragon',
+  'dark',
+  'fairy',
+];
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,6 +32,7 @@ export class HomeComponent implements OnInit {
   constructor(private pokemonsService: PokemonsService) {}
 
   qtd!: number | null;
+  types: string[] = types;
   pokemons: Pokemon[] = [];
 
   ngOnInit() {
