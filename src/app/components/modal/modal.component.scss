@@ -22,7 +22,8 @@
   }
 
   .bg-closing {
-    animation: close-background .5s;
+    transition-duration: .5s;
+    opacity: 0;
   }
 
   img {
@@ -76,11 +77,6 @@
 @keyframes open-background {
   from { opacity: 0; }
   to { opacity: 1; }
-}
-
-@keyframes close-background {
-  from { opacity: 1; }
-  to { opacity: 0; }
 }
 
 @keyframes pokeballIn {
