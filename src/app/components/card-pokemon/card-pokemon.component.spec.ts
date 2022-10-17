@@ -1,22 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ModalComponent } from './../modal/modal.component';
 import { CardPokemonComponent } from './card-pokemon.component';
+import { render, fireEvent, screen } from '@testing-library/angular';
+import { defaultTest } from 'src/app/models/pokemon-id/default-test';
+
+const sut = async () => {
+  await render(CardPokemonComponent, {
+    componentProperties: { pokemon: defaultTest },
+    declarations: [ModalComponent],
+  });
+};
 
 describe('CardPokemonComponent', () => {
-  let component: CardPokemonComponent;
-  let fixture: ComponentFixture<CardPokemonComponent>;
-
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [CardPokemonComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(CardPokemonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await sut();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const element = screen.findAllByTestId('container-pokemon');
+    expect(element).toBeTruthy();
+  });
+
+  it('should not render modal on create', async () => {
+    expect(screen.queryAllByTestId('modal')).toHaveLength(0);
+  });
+
+  it('should set modal open on click', async () => {
+    const element = screen.getByTestId('container-pokemon');
+    fireEvent.click(element);
+    const modal = screen.findByTestId('modal');
+    expect(modal).toBeTruthy();
   });
 });

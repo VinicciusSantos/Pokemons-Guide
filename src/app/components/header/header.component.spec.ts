@@ -1,22 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ToggleThemeComponent } from './../toggle-theme/toggle-theme.component';
 import { HeaderComponent } from './header.component';
+import { render } from '@testing-library/angular';
+
+const sut = async () => {
+  await render(HeaderComponent, {
+    componentProperties: {},
+    declarations: [ToggleThemeComponent],
+  });
+};
 
 describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
-
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(HeaderComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await sut();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const header = document.getElementsByTagName('header');
+    expect(header).toBeTruthy();
   });
 });

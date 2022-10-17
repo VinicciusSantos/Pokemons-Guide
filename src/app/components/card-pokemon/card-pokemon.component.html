@@ -1,4 +1,8 @@
-<div id="container" *ngIf="pokemon" (click)="changeModal(true)">
+<div
+  data-testid="container-pokemon"
+  id="container-pokemon"
+  *ngIf="pokemon"
+  (click)="changeModal(true)">
   <h2>{{ pokemon.name }}</h2>
   <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
 
@@ -17,6 +21,8 @@
 </div>
 
 <app-modal
+  data-testid="modal"
+  *ngIf="isModalOpen"
   [isOpen]="isModalOpen"
   [pokemon]="pokemon"
   (isOpenChange)="changeModal($event)"></app-modal>

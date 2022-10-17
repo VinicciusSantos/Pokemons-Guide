@@ -2,6 +2,11 @@ import { Pokemon } from './../../models/pokemon-id/pokemon';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { delay } from 'rxjs';
 
+export interface ModalProps {
+  isOpen: boolean;
+  pokemon: Pokemon;
+}
+
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
@@ -16,10 +21,9 @@ export class ModalComponent {
   isClosing = false;
   changeModal() {
     this.isClosing = true;
-    setTimeout(() => {
-      this.isOpen = !this.isOpen;
-      this.isOpenChange.emit(this.isOpen);
-      this.isClosing = false;
-    }, 500);
+    delay(500);
+    this.isOpen = !this.isOpen;
+    this.isOpenChange.emit(this.isOpen);
+    this.isClosing = false;
   }
 }

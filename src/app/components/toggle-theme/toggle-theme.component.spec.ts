@@ -1,22 +1,39 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ToggleThemeComponent } from './toggle-theme.component';
+import { render, fireEvent, screen } from '@testing-library/angular';
 
-import { ToggleThemeComponent } from './ToggleThemeComponent';
+const sut = async () => {
+  await render(ToggleThemeComponent, {
+    componentProperties: {},
+    declarations: [],
+  });
+};
 
 describe('ToggleThemeComponent', () => {
-  let component: ToggleThemeComponent;
-  let fixture: ComponentFixture<ToggleThemeComponent>;
-
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ToggleThemeComponent],
-    }).compileComponents();
-
-    fixture = TestBed.createComponent(ToggleThemeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    await sut();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const element = screen.getByTestId('toggle-theme');
+    expect(element).toBeTruthy();
+  });
+
+  it('should render with light-mode', async () => {
+    const root = document.getElementsByTagName('body');
+    expect(root[0]).toHaveClass('light-mode');
+  });
+
+  it('should change theme on click', async () => {
+    const root = document.getElementsByTagName('body');
+    const element = screen.getByTestId('toggle-theme');
+    fireEvent.click(element);
+    expect(root[0]).toHaveClass('dark-mode');
+    expect(localStorage.getItem('user-theme')).toEqual('dark-mode');
+  });
+
+  it('should record theme in localStorage', async () => {
+    const element = screen.getByTestId('toggle-theme');
+    fireEvent.click(element);
+    expect(localStorage.getItem('user-theme')).not.toBeNull();
   });
 });
