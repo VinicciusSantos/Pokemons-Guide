@@ -1,6 +1,5 @@
 import { Pokemon } from './../../models/pokemon-id/pokemon';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { delay } from 'rxjs';
 
 export interface ModalProps {
   isOpen: boolean;
@@ -19,9 +18,9 @@ export class ModalComponent {
   constructor() {}
 
   isClosing = false;
-  changeModal() {
+  async changeModal() {
     this.isClosing = true;
-    delay(500);
+    await new Promise(f => setTimeout(f, 500));
     this.isOpen = !this.isOpen;
     this.isOpenChange.emit(this.isOpen);
     this.isClosing = false;

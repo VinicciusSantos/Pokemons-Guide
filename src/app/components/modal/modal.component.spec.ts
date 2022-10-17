@@ -47,7 +47,8 @@ describe('ModalComponent', () => {
       const modal = screen.getByTestId('modal');
       const back = screen.getByTestId('back');
       fireEvent.click(back);
-      setTimeout(() => expect(modal).toHaveClass('modal-closed'), 600);
+      await new Promise(f => setTimeout(f, 500));
+      expect(modal).toHaveClass('modal-closed');
     });
   });
 });
