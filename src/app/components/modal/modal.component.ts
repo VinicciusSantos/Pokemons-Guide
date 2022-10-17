@@ -1,5 +1,5 @@
 import { Pokemon } from './../../models/pokemon-id/pokemon';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export interface ModalProps {
   isOpen: boolean;
@@ -15,6 +15,7 @@ export class ModalComponent {
   @Input() isOpen: boolean = false;
   @Input() pokemon!: Pokemon;
   @Output() isOpenChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   constructor() {}
 
   isClosing = false;

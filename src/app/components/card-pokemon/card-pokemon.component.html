@@ -9,8 +9,6 @@
   <div id="contTypes">
     <img
       *ngFor="let tipo of pokemon.types"
-      height="45px"
-      width="auto"
       [title]="'type ' + tipo.type.name"
       [src]="'../../../assets/types/' + tipo.type.name + '.png'" />
   </div>
