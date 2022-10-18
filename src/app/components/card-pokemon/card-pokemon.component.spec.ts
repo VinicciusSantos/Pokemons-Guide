@@ -30,4 +30,19 @@ describe('CardPokemonComponent', () => {
     const modal = screen.findByTestId('modal');
     expect(modal).toBeTruthy();
   });
+
+  it('should render name', async () => {
+    const element = screen.getAllByText(defaultTest.name);
+    expect(element).toBeTruthy();
+  });
+
+  it('should render photo', async () => {
+    const element = screen.getAllByAltText(defaultTest.name);
+    expect(element).toBeTruthy();
+  });
+
+  it('should render pokemon types image', async () => {
+    const elements = screen.getAllByTestId('pokemon-type-image');
+    expect(elements.length).toBe(defaultTest.types.length);
+  });
 });

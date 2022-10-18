@@ -10,6 +10,8 @@
     <img
       *ngFor="let tipo of pokemon.types"
       [title]="'type ' + tipo.type.name"
+      [alt]="'type ' + tipo.type.name"
+      data-testid="pokemon-type-image"
       [src]="'../../../assets/types/' + tipo.type.name + '.png'" />
   </div>
 
