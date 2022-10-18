@@ -1,4 +1,4 @@
-import { Pokemon } from './../../models/pokemon-id/pokemon';
+import { Pokemon } from '../../../models/pokemon-id/pokemon';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export interface ModalProps {
