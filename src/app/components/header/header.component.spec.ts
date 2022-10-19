@@ -1,4 +1,4 @@
-import { ToggleThemeComponent } from './toggle-theme/toggle-theme.component';
+import { ToggleThemeComponent } from '../toggle-theme/toggle-theme.component';
 import { HeaderComponent } from './header.component';
 import { render } from '@testing-library/angular';
 
