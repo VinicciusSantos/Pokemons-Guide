@@ -1,3 +1,4 @@
+import { AppZorroModule } from './../../shared/app-zorro/app-zorro.module';
 import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home.routing';
 import { RouterModule } from '@angular/router';
@@ -18,6 +19,7 @@ import { ModalComponent } from './modal/modal.component';
     RouterModule,
     HomeRoutingModule,
     FormsModule,
+    AppZorroModule,
   ],
   exports: [],
   declarations: [HomeComponent, CardPokemonComponent, ModalComponent],

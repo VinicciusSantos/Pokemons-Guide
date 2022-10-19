@@ -9,15 +9,23 @@ import { types } from 'src/app/models/types';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private pokemonsService: PokemonsService) {}
+  constructor(private pokemonsService: PokemonsService) {
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) this.loadMore();
+      });
+    });
+  }
 
   offset: number = 0;
-  limit: number = 20;
+  limit: number = 30;
 
   types: string[] = types;
   initialPokemons: Pokemon[] = [];
   pokemons: Pokemon[] = [];
   search: string = '';
+
+  observer: IntersectionObserver;
 
   // Função Chamada para filtrar os pokemons pelo nome na searchbar
   filterByName(): void {
@@ -43,12 +51,14 @@ export class HomeComponent implements OnInit {
   }
 
   // função usada quando é necessário carregar mais um grupo de pokemons na tela
-  loadMore(): void {
+  async loadMore() {
     this.offset += this.limit;
     this.loadPokemons(this.offset, this.limit);
   }
 
   ngOnInit() {
+    const button = document.getElementById('load-more');
+    if (button) this.observer.observe(button);
     this.loadPokemons(this.offset, this.limit);
   }
 }

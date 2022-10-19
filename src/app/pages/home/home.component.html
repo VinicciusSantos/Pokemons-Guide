@@ -45,6 +45,6 @@
       [routerLink]="[pok.name]"
       *ngFor="let pok of pokemons"
       [pokemon]="pok"></app-card-pokemon>
-    <button (click)="loadMore()">load more</button>
+    <span nz-icon [nzType]="'sync'" [nzSpin]="true" id="load-more"></span>
   </ul>
 </div>
