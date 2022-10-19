@@ -1,27 +1,7 @@
 import { Pokemon } from './../../models/pokemon-id/pokemon';
 import { PokemonsService } from './../../services/pokemons.service';
 import { Component, OnInit } from '@angular/core';
-
-const types = [
-  'normal',
-  'fire',
-  'water',
-  'grass',
-  'flying',
-  'fighting',
-  'poison',
-  'electric',
-  'ground',
-  'rock',
-  'psychic',
-  'ice',
-  'bug',
-  'ghost',
-  'steel',
-  'dragon',
-  'dark',
-  'fairy',
-];
+import { types } from 'src/app/models/types';
 
 @Component({
   selector: 'app-home',
@@ -39,6 +19,7 @@ export class HomeComponent implements OnInit {
   pokemons: Pokemon[] = [];
   search: string = '';
 
+  // Função Chamada para filtrar os pokemons pelo nome na searchbar
   filterByName(): void {
     if (this.search === '') {
       this.pokemons = this.initialPokemons;
@@ -49,6 +30,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  // Função Responsável por chamar o service para receber os dados da API
   loadPokemons(offset: number, limit: number): void {
     this.pokemonsService.getPokemons(offset, limit).subscribe(res => {
       res.results.forEach(pok => {
@@ -60,6 +42,7 @@ export class HomeComponent implements OnInit {
     this.pokemons = this.initialPokemons;
   }
 
+  // função usada quando é necessário carregar mais um grupo de pokemons na tela
   loadMore(): void {
     this.offset += this.limit;
     this.loadPokemons(this.offset, this.limit);
