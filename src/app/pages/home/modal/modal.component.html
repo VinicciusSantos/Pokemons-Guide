@@ -27,7 +27,7 @@
     <div class="main">
       <div id="title">
         <h2>{{ pokemon.name }}</h2>
-        <button (click)="changeModal()">
+        <button (click)="changeModal()" data-testid="close-button">
           <span nz-icon nzType="close" nzTheme="outline"></span>
         </button>
       </div>

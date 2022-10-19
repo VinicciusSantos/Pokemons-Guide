@@ -11,7 +11,10 @@ const sut = async (customProps?: ModalProps) => {
 
 describe('ModalComponent', () => {
   it('should create', async () => {
-    await sut();
+    await sut({
+      isOpen: false,
+      pokemon: defaultTest,
+    });
     const modal = screen.getByTestId('modal');
     expect(modal).toBeTruthy();
   });
@@ -47,6 +50,14 @@ describe('ModalComponent', () => {
       const modal = screen.getByTestId('modal');
       const back = screen.getByTestId('back');
       fireEvent.click(back);
+      await new Promise(f => setTimeout(f, 500));
+      expect(modal).toHaveClass('modal-closed');
+    });
+
+    it('should close on click close button', async () => {
+      const closeButton = screen.getByTestId('close-button');
+      const modal = screen.getByTestId('modal');
+      fireEvent.click(closeButton);
       await new Promise(f => setTimeout(f, 500));
       expect(modal).toHaveClass('modal-closed');
     });
