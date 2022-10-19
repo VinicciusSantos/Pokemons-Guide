@@ -1,0 +1,58 @@
+<div
+  data-testid="modal"
+  [ngClass]="{
+    'modal-open': isOpen,
+    'modal-closed': !isOpen
+  }">
+  <div class="content" [ngClass]="{ 'content-closing': isClosing }">
+    <div class="photos">
+      <img
+        [src]="pokemon.sprites.front_default"
+        alt="front_default"
+        title="Skin Front Default" />
+      <img
+        [src]="pokemon.sprites.back_default"
+        alt="back_default"
+        title="Skin Back Default" />
+      <img
+        [src]="pokemon.sprites.front_shiny"
+        alt="front_shiny"
+        title="Skin Front Shiny" />
+      <img
+        [src]="pokemon.sprites.back_shiny"
+        alt="back_shiny"
+        title="Skin Back Shiny" />
+    </div>
+
+    <div class="main">
+      <div id="title">
+        <h2>{{ pokemon.name }}</h2>
+        <button (click)="changeModal()">
+          <span nz-icon nzType="close" nzTheme="outline"></span>
+        </button>
+      </div>
+
+      <span id="divider"></span>
+
+      <div id="contTypes">
+        <img
+          *ngFor="let tipo of pokemon.types"
+          [src]="'../../../assets/types/' + tipo.type.name + '.png'"
+          alt="" />
+      </div>
+
+      <div
+        id="background"
+        [ngStyle]="{
+          'background-image': 'url(' + pokemon.sprites.front_default + ')'
+        }"></div>
+    </div>
+  </div>
+
+  <img src="../../../assets/pokeball.png" alt="pokeball" />
+  <div
+    data-testid="back"
+    id="background"
+    (click)="changeModal()"
+    [ngClass]="{ 'bg-closing': isClosing }"></div>
+</div>

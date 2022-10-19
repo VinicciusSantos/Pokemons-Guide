@@ -25,7 +25,7 @@
         font-size: 15px;
         line-height: 15px;
       }
-
+      
       input {
         background-color: transparent;
         margin-left: 10px;
@@ -67,6 +67,6 @@
     background-color: var(--tertiary-1);
     border-radius: 10px 10px 0 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
