@@ -1,4 +1,4 @@
-<div
+<li
   data-testid="container-pokemon"
   id="container-pokemon"
   *ngIf="pokemon"
@@ -8,6 +8,7 @@
 
   <div id="contTypes">
     <img
+      width="50px"
       *ngFor="let tipo of pokemon.types"
       [title]="'type ' + tipo.type.name"
       [alt]="'type ' + tipo.type.name"
@@ -20,11 +21,4 @@
     [ngStyle]="{
       'background-image': 'url(' + pokemon.sprites.front_default + ')'
     }"></div>
-</div>
-
-<app-modal
-  data-testid="modal"
-  *ngIf="isModalOpen"
-  [isOpen]="isModalOpen"
-  [pokemon]="pokemon"
-  (isOpenChange)="changeModal($event)"></app-modal>
+</li>

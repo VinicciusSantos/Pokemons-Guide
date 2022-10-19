@@ -1,3 +1,5 @@
+import { HomeRoutingModule } from './home.routing';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -8,7 +10,13 @@ import { HomeComponent } from './home.component';
 import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
-  imports: [CommonModule, HeaderModule, NgbModule],
+  imports: [
+    CommonModule,
+    HeaderModule,
+    NgbModule,
+    RouterModule,
+    HomeRoutingModule,
+  ],
   exports: [],
   declarations: [HomeComponent, CardPokemonComponent, ModalComponent],
 })

@@ -1,4 +1,5 @@
 <div
+  *ngIf="pokemon"
   data-testid="modal"
   [ngClass]="{
     'modal-open': isOpen,
@@ -36,6 +37,7 @@
 
       <div id="contTypes">
         <img
+          width="100px"
           *ngFor="let tipo of pokemon.types"
           [src]="'../../../assets/types/' + tipo.type.name + '.png'"
           alt="" />
@@ -49,7 +51,7 @@
     </div>
   </div>
 
-  <img src="../../../assets/pokeball.png" alt="pokeball" />
+  <img src="../../../assets/pokeball.png" alt="pokeball" width="50px" />
   <div
     data-testid="back"
     id="background"

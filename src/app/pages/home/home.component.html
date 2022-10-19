@@ -1,3 +1,5 @@
+<router-outlet></router-outlet>
+
 <div id="container">
   <app-header></app-header>
 
@@ -34,9 +36,10 @@
     </div>
   </div>
 
-  <div id="contCards">
+  <ul id="contCards">
     <app-card-pokemon
+      [routerLink]="[pok.name]"
       *ngFor="let pok of pokemons"
       [pokemon]="pok"></app-card-pokemon>
-  </div>
+  </ul>
 </div>
