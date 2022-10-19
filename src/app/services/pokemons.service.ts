@@ -22,7 +22,9 @@ export class PokemonsService {
     return this.httpClient.get<Pokemon>(`${this.url}/${name}`);
   }
 
-  getPokemons(qtd: number | null = 20): Observable<RootObject> {
-    return this.httpClient.get<RootObject>(`${this.url}?limit=${qtd}`);
+  getPokemons(offset: number, limit: number): Observable<RootObject> {
+    return this.httpClient.get<RootObject>(
+      `${this.url}?offset=${offset}limit=${limit}`
+    );
   }
 }

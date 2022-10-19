@@ -45,5 +45,6 @@
       [routerLink]="[pok.name]"
       *ngFor="let pok of pokemons"
       [pokemon]="pok"></app-card-pokemon>
+    <button (click)="loadMore()">load more</button>
   </ul>
 </div>

@@ -31,22 +31,13 @@ const types = [
 export class HomeComponent implements OnInit {
   constructor(private pokemonsService: PokemonsService) {}
 
-  qtd!: number | null;
+  offset: number = 0;
+  limit: number = 20;
+
   types: string[] = types;
   initialPokemons: Pokemon[] = [];
   pokemons: Pokemon[] = [];
   search: string = '';
-
-  ngOnInit() {
-    this.pokemonsService.getPokemons(this.qtd).subscribe(res => {
-      res.results.forEach(pok => {
-        this.pokemonsService.getOnePokemon(pok.name).subscribe(res => {
-          this.initialPokemons.push(res);
-        });
-      });
-    });
-    this.pokemons = this.initialPokemons;
-  }
 
   filterByName(): void {
     if (this.search === '') {
@@ -56,5 +47,25 @@ export class HomeComponent implements OnInit {
     this.pokemons = this.initialPokemons.filter((pok: Pokemon) => {
       return pok.name.toLowerCase().includes(this.search.toLowerCase());
     });
+  }
+
+  loadPokemons(offset: number, limit: number): void {
+    this.pokemonsService.getPokemons(offset, limit).subscribe(res => {
+      res.results.forEach(pok => {
+        this.pokemonsService.getOnePokemon(pok.name).subscribe(res => {
+          this.initialPokemons.push(res);
+        });
+      });
+    });
+    this.pokemons = this.initialPokemons;
+  }
+
+  loadMore(): void {
+    this.offset += this.limit;
+    this.loadPokemons(this.offset, this.limit);
+  }
+
+  ngOnInit() {
+    this.loadPokemons(this.offset, this.limit);
   }
 }
