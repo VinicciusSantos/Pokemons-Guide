@@ -9,8 +9,7 @@
     "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:watch": "jest --watch"
   },
   "private": true,
   "dependencies": {
@@ -67,7 +66,7 @@
     ],
     "globals": {
       "ts-jest": {
-        "tsConfig": "<rootDir>/tsconfig.spec.json",
+        "tsconfig": "<rootDir>/tsconfig.spec.json",
         "stringifyContentPathRegex": "\\.html$"
       }
     },
@@ -79,6 +78,7 @@
       "json",
       "html",
       "lcov"
-    ]
+    ],
+    "verbose": true
   }
 }
