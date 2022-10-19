@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home.routing';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -16,6 +17,7 @@ import { ModalComponent } from './modal/modal.component';
     NgbModule,
     RouterModule,
     HomeRoutingModule,
+    FormsModule,
   ],
   exports: [],
   declarations: [HomeComponent, CardPokemonComponent, ModalComponent],

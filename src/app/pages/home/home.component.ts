@@ -33,15 +33,28 @@ export class HomeComponent implements OnInit {
 
   qtd!: number | null;
   types: string[] = types;
+  initialPokemons: Pokemon[] = [];
   pokemons: Pokemon[] = [];
+  search: string = '';
 
   ngOnInit() {
     this.pokemonsService.getPokemons(this.qtd).subscribe(res => {
       res.results.forEach(pok => {
         this.pokemonsService.getOnePokemon(pok.name).subscribe(res => {
-          this.pokemons.push(res);
+          this.initialPokemons.push(res);
         });
       });
+    });
+    this.pokemons = this.initialPokemons;
+  }
+
+  filterByName(): void {
+    if (this.search === '') {
+      this.pokemons = this.initialPokemons;
+      return;
+    }
+    this.pokemons = this.initialPokemons.filter((pok: Pokemon) => {
+      return pok.name.toLowerCase().includes(this.search.toLowerCase());
     });
   }
 }

@@ -6,7 +6,11 @@
   <div id="contFiltros">
     <div id="contInput">
       <span nz-icon nzType="search" nzTheme="outline"></span>
-      <input type="search" placeholder="Search here..." />
+      <input
+        type="search"
+        [(ngModel)]="search"
+        placeholder="Search here..."
+        (ngModelChange)="filterByName()" />
     </div>
 
     <div ngbDropdown class="d-inline-block">
