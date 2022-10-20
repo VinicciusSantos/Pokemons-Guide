@@ -1,3 +1,4 @@
+import { Title } from '@angular/platform-browser';
 import { Pokemon } from './../../models/pokemon-id/pokemon';
 import { PokemonsService } from './../../services/pokemons.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +10,7 @@ import { types } from 'src/app/models/types';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private pokemonsService: PokemonsService) {
+  constructor(private pokemonsService: PokemonsService, private _title: Title) {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) this.loadMore();
@@ -57,6 +58,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._title.setTitle('Pokemons');
     const button = document.getElementById('load-more');
     if (button) this.observer.observe(button);
     this.loadPokemons(this.offset, this.limit);

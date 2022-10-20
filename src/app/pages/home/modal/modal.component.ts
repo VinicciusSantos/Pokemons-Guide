@@ -2,6 +2,7 @@ import { PokemonsService } from './../../../services/pokemons.service';
 import { Pokemon } from '../../../models/pokemon-id/pokemon';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-modal',
@@ -15,7 +16,8 @@ export class ModalComponent implements OnInit {
   constructor(
     private _pokService: PokemonsService,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _title: Title
   ) {}
 
   PokemonName: string = '';
@@ -29,6 +31,7 @@ export class ModalComponent implements OnInit {
     await this.delay();
     this.isOpen = !this.isOpen;
     this.isClosing = false;
+    this._title.setTitle('Pokemons');
     this._router.navigate(['/pokemons']);
   }
 
@@ -36,6 +39,9 @@ export class ModalComponent implements OnInit {
     this._route.params.subscribe((params: any) => {
       this.PokemonName = params['name'] || 1;
     });
+    this._title.setTitle(
+      this.PokemonName.replace(/\b\w/g, l => l.toUpperCase())
+    );
     this._pokService
       .getOnePokemon(this.PokemonName)
       .subscribe((res: Pokemon) => (this.pokemon = res));
