@@ -4,16 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { ModalComponent } from './modal/modal.component';
 
-const homeRoutes: Routes = [
+export const homeRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
     children: [{ path: ':name', component: ModalComponent }],
   },
-  // {
-  //   path: ':name',
-  //   component: ModalComponent,
-  // },
 ];
 
 @NgModule({

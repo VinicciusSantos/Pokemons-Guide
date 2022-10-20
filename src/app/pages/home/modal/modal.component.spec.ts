@@ -1,65 +1,46 @@
-import { defaultTest } from '../../../models/pokemon-id/default-test';
-import { ModalComponent, ModalProps } from './modal.component';
+import { Router } from '@angular/router';
+import { PokemonsService } from './../../../services/pokemons.service';
+import { ModalComponent } from './modal.component';
 import { render, screen, fireEvent } from '@testing-library/angular';
+import { HttpClientModule } from '@angular/common/http';
+import { homeRoutes } from '../home.routing';
 
-const sut = async (customProps?: ModalProps) => {
+const sut = async () => {
   await render(ModalComponent, {
-    componentProperties: customProps,
+    componentProperties: {},
     declarations: [],
+    providers: [PokemonsService],
+    imports: [HttpClientModule],
+    routes: homeRoutes,
   });
 };
 
 describe('ModalComponent', () => {
+  beforeEach(async () => {
+    await sut();
+    await screen.findByTestId('modal');
+  });
+
   it('should create', async () => {
-    await sut({
-      isOpen: false,
-      pokemon: defaultTest,
-    });
     const modal = screen.getByTestId('modal');
     expect(modal).toBeTruthy();
   });
 
-  describe('with closed modal', () => {
-    beforeEach(async () => {
-      await sut({
-        isOpen: false,
-        pokemon: defaultTest,
-      });
-    });
-
-    it('should not render because isVisible is false', async () => {
-      const modal = screen.getByTestId('modal');
-      expect(modal).toHaveClass('modal-closed');
-    });
+  it('should close on clickaway', async () => {
+    const back = screen.getByTestId('back');
+    fireEvent.click(back);
+    await sleep(500);
+    expect(screen.queryByTestId('modal')).toBeNull();
   });
 
-  describe('with open modal', () => {
-    beforeEach(async () => {
-      await sut({
-        isOpen: true,
-        pokemon: defaultTest,
-      });
-    });
-
-    it('should not render because isVisible is true', async () => {
-      const modal = screen.getByTestId('modal');
-      expect(modal).toHaveClass('modal-open');
-    });
-
-    it('should close on clickaway', async () => {
-      const modal = screen.getByTestId('modal');
-      const back = screen.getByTestId('back');
-      fireEvent.click(back);
-      await new Promise(f => setTimeout(f, 500));
-      expect(modal).toHaveClass('modal-closed');
-    });
-
-    it('should close on click close button', async () => {
-      const closeButton = screen.getByTestId('close-button');
-      const modal = screen.getByTestId('modal');
-      fireEvent.click(closeButton);
-      await new Promise(f => setTimeout(f, 500));
-      expect(modal).toHaveClass('modal-closed');
-    });
+  it('should close on click close button', async () => {
+    const closeButton = screen.getByTestId('close-button');
+    fireEvent.click(closeButton);
+    await sleep(500);
+    expect(screen.queryByTestId('modal')).toBeNull();
   });
 });
+
+const sleep = (ms: number) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};

@@ -1,6 +1,6 @@
 <div
-  *ngIf="pokemon"
   data-testid="modal"
+  *ngIf="pokemon && isOpen"
   [ngClass]="{
     'modal-open': isOpen,
     'modal-closed': !isOpen

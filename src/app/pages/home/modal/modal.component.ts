@@ -1,12 +1,7 @@
 import { PokemonsService } from './../../../services/pokemons.service';
 import { Pokemon } from '../../../models/pokemon-id/pokemon';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
-export interface ModalProps {
-  isOpen: boolean;
-  pokemon: Pokemon;
-}
 
 @Component({
   selector: 'app-modal',
@@ -25,10 +20,13 @@ export class ModalComponent implements OnInit {
 
   PokemonName: string = '';
 
+  async delay() {
+    await Promise.resolve();
+  }
   isClosing = false;
   async changeModal() {
     this.isClosing = true;
-    await new Promise(f => setTimeout(f, 500));
+    await this.delay();
     this.isOpen = !this.isOpen;
     this.isClosing = false;
     this._router.navigate(['/pokemons']);
@@ -36,7 +34,7 @@ export class ModalComponent implements OnInit {
 
   ngOnInit(): void {
     this._route.params.subscribe((params: any) => {
-      this.PokemonName = params['name'];
+      this.PokemonName = params['name'] || 1;
     });
     this._pokService
       .getOnePokemon(this.PokemonName)
