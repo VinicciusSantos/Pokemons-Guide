@@ -1,18 +1,12 @@
 <header>
   <section>
-    <img src="../../../assets/title.png" />
+    <img [src]="image" alt="logo" data-testid="logo" />
     <nav>
       <ul>
-        <li>
-          <a routerLink="/pokemons" routerLinkActive="active">
-            <span nz-icon nzType="home" nzTheme="fill"></span>
-            <span>Home</span>
-          </a>
-        </li>
-        <li>
-          <a routerLink="/favoritos" routerLinkActive="active">
-            <span nz-icon nzType="star" nzTheme="fill"></span>
-            <span>Favoritos</span>
+        <li *ngFor="let page of pages" data-testid="page">
+          <a [routerLink]="page.route" routerLinkActive="active">
+            <span nz-icon [nzType]="page.icon" nzTheme="fill"></span>
+            <span>{{ page.title }}</span>
           </a>
         </li>
       </ul>

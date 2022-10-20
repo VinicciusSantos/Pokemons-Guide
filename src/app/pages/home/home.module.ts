@@ -21,7 +21,6 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule,
     AppZorroModule,
   ],
-  exports: [],
   declarations: [HomeComponent, CardPokemonComponent, ModalComponent],
 })
 export class HomeModule {}
