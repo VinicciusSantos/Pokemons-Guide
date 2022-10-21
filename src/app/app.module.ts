@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FavoritosModule } from './pages/favoritos/favoritos.module';
 import { LoginModule } from './pages/login/login.module';
-import { AppZorroModule } from './shared/app-zorro/app-zorro.module';
+import { AppZorroModule } from './app-zorro.module';
 
 registerLocaleData(en);
 

@@ -2,7 +2,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { render, screen } from '@testing-library/angular';
 
 import { ToggleThemeComponent } from '../toggle-theme/toggle-theme.component';
-import { AppZorroModule } from './../../shared/app-zorro/app-zorro.module';
+import { AppZorroModule } from '../../app-zorro.module';
 import { HeaderComponent, HeaderProps, page } from './header.component';
 
 const sut = async (customProps: HeaderProps) => {

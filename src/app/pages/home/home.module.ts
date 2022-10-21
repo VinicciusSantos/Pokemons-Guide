@@ -1,4 +1,4 @@
-import { AppZorroModule } from './../../shared/app-zorro/app-zorro.module';
+import { AppZorroModule } from '../../app-zorro.module';
 import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home.routing';
 import { RouterModule } from '@angular/router';
