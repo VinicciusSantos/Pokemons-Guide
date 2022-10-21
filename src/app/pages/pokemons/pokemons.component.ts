@@ -59,7 +59,10 @@ export class PokemonsComponent implements OnInit {
     this.loadPokemons(this.offset, this.limit);
   }
 
+  favIcon: any = document.getElementById('appIcon');
+
   ngOnInit() {
+    this.favIcon.href = '../../../assets/pokeball.png';
     this._title.setTitle('Pokemons');
     const button = document.getElementById('load-more');
     if (button) this.observer.observe(button);

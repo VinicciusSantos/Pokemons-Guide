@@ -33,7 +33,10 @@ export class ModalComponent implements OnInit {
     this.isClosing = false;
     this._title.setTitle('Pokemons');
     this._router.navigate(['/pokemons']);
+    this.favIcon.href = '../../../../assets/pokeball.png';
   }
+
+  favIcon: any = document.getElementById('appIcon');
 
   ngOnInit(): void {
     this._route.params.subscribe((params: any) => {
@@ -44,6 +47,9 @@ export class ModalComponent implements OnInit {
     );
     this._pokService
       .getOnePokemon(this.PokemonName)
-      .subscribe((res: Pokemon) => (this.pokemon = res));
+      .subscribe((res: Pokemon) => {
+        this.pokemon = res;
+        this.favIcon.href = res.sprites.front_default;
+      });
   }
 }
