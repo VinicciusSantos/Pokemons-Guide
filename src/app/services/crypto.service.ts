@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import CryptoJS from 'crypto-js';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root',
@@ -40,5 +41,10 @@ export class CryptoService {
 
     var signedToken = token + '.' + signature;
     return signedToken;
+  }
+
+  decodeToken(token: string): any {
+    const helper = new JwtHelperService();
+    return helper.decodeToken(token);
   }
 }

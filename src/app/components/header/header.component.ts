@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth.service';
 import { Component, Input } from '@angular/core';
 
 export interface page {
@@ -17,6 +18,8 @@ export interface HeaderProps {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  constructor(private authService: AuthService) {}
+
   @Input() image?: string = '../../../assets/title.png';
   @Input() pages?: page[] = [
     {
@@ -30,4 +33,8 @@ export class HeaderComponent {
       icon: 'star',
     },
   ];
+
+  logOut() {
+    this.authService.fazLogout();
+  }
 }
