@@ -3,7 +3,7 @@ import { PokemonsService } from './../../../services/pokemons.service';
 import { ModalComponent } from './modal.component';
 import { render, screen, fireEvent } from '@testing-library/angular';
 import { HttpClientModule } from '@angular/common/http';
-import { homeRoutes } from '../home.routing';
+import { homeRoutes } from '../pokemons.routing';
 
 const sut = async () => {
   await render(ModalComponent, {

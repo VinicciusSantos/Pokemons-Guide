@@ -3,15 +3,15 @@ import { Title } from '@angular/platform-browser';
 import { Result } from 'src/app/models/root';
 import { types } from 'src/app/models/types';
 
-import { Pokemon } from './../../models/pokemon';
-import { PokemonsService } from './../../services/pokemons.service';
+import { Pokemon } from '../../models/pokemon';
+import { PokemonsService } from '../../services/pokemons.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  templateUrl: './pokemons.component.html',
+  styleUrls: ['./pokemons.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class PokemonsComponent implements OnInit {
   constructor(private pokemonsService: PokemonsService, private _title: Title) {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(e => {

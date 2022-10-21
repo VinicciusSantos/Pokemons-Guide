@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home.component';
+import { PokemonsComponent } from './pokemons.component';
 import { ModalComponent } from './modal/modal.component';
 
 export const homeRoutes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    component: PokemonsComponent,
     children: [{ path: ':name', component: ModalComponent }],
   },
 ];

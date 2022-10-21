@@ -1,14 +1,14 @@
 import { AppZorroModule } from '../../styles/app-zorro.module';
 import { FormsModule } from '@angular/forms';
-import { HomeRoutingModule } from './home.routing';
+import { HomeRoutingModule } from './pokemons.routing';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { HeaderModule } from './../../components/header/header.module';
+import { HeaderModule } from '../../components/header/header.module';
 import { CardPokemonComponent } from './card-pokemon/card-pokemon.component';
-import { HomeComponent } from './home.component';
+import { PokemonsComponent } from './pokemons.component';
 import { ModalComponent } from './modal/modal.component';
 
 @NgModule({
@@ -21,6 +21,6 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule,
     AppZorroModule,
   ],
-  declarations: [HomeComponent, CardPokemonComponent, ModalComponent],
+  declarations: [PokemonsComponent, CardPokemonComponent, ModalComponent],
 })
-export class HomeModule {}
+export class PokemonsModule {}

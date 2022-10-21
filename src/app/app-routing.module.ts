@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: 'pokemons',
     loadChildren: () =>
-      import('./pages/home/home.module').then(x => x.HomeModule),
+      import('./pages/pokemons/pokemons.module').then(x => x.PokemonsModule),
     canActivate: [AuthGuard],
   },
   {
