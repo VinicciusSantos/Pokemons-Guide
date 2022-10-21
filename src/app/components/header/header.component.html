@@ -14,9 +14,11 @@
   </section>
 
   <section id="right-section">
-    <button (click)="logOut()">Logout</button>
-
     <app-toggle-theme></app-toggle-theme>
+
+    <button (click)="logOut()" class="btn-logout" title="Logout">
+      <span nz-icon nzType="logout" nzTheme="outline"></span>
+    </button>
 
     <a href="https://github.com/VinicciusSantos/Brisalabs-PokeAPI">
       <span nz-icon nzType="github" nzTheme="outline"></span>
