@@ -1,11 +1,11 @@
+import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {
   UntypedFormBuilder,
-  UntypedFormControl,
   UntypedFormGroup,
   Validators,
 } from '@angular/forms';
-import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +15,11 @@ import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 export class LoginComponent implements OnInit {
   loginForm!: UntypedFormGroup;
 
-  constructor(private formBuilder: UntypedFormBuilder) {}
+  constructor(
+    private formBuilder: UntypedFormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -25,6 +29,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.loginForm.value);
+    let isLogged = this.authService.fazLogin(this.loginForm.value);
+    if (isLogged) {
+      this.router.navigate(['/']);
+    }
   }
 }

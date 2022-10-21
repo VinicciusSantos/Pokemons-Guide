@@ -1,5 +1,5 @@
-import { Pokemon } from '../../../models/pokemon-id/pokemon';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon';
 
 @Component({
   selector: 'app-card-pokemon',

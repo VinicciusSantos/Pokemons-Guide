@@ -1,8 +1,10 @@
-import { Title } from '@angular/platform-browser';
-import { Pokemon } from './../../models/pokemon-id/pokemon';
-import { PokemonsService } from './../../services/pokemons.service';
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Result } from 'src/app/models/root';
 import { types } from 'src/app/models/types';
+
+import { Pokemon } from './../../models/pokemon';
+import { PokemonsService } from './../../services/pokemons.service';
 
 @Component({
   selector: 'app-home',
@@ -42,7 +44,7 @@ export class HomeComponent implements OnInit {
   // Função Responsável por chamar o service para receber os dados da API
   loadPokemons(offset: number, limit: number): void {
     this.pokemonsService.getPokemons(offset, limit).subscribe(res => {
-      res.results.forEach(pok => {
+      res.results.forEach((pok: Result) => {
         this.pokemonsService.getOnePokemon(pok.name).subscribe(res => {
           this.initialPokemons.push(res);
         });

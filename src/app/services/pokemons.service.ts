@@ -1,9 +1,8 @@
-import { Result } from './../models/root-response/root-object';
-import { Pokemon } from './../models/pokemon-id/pokemon';
+import { Result, RootObject } from './../models/root';
+import { Pokemon } from './../models/pokemon';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { RootObject } from '../models/root-response/root-object';
 
 @Injectable({
   providedIn: 'root',

@@ -1,5 +1,5 @@
 import { PokemonsService } from './../../../services/pokemons.service';
-import { Pokemon } from '../../../models/pokemon-id/pokemon';
+import { Pokemon } from '../../../models/pokemon';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
