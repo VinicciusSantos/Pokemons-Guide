@@ -1,4 +1,4 @@
-import { AppZorroModule } from '../../app-zorro.module';
+import { AppZorroModule } from '../../styles/app-zorro.module';
 import { HeaderComponent } from './header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

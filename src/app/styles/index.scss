@@ -1,3 +1,10 @@
 @import './buttons.scss';
 @import './fonts/index.scss';
-@import './colors/index.scss'
+@import './colors/index.scss';
+@import 'bootstrap/scss/bootstrap';
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
