@@ -1,11 +1,10 @@
-import { LoginGuard } from './guards/login.guard';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
+export const mainRoutes: Routes = [
   {
     path: 'pokemons',
     loadChildren: () =>
@@ -17,12 +16,12 @@ const routes: Routes = [
     component: FavoritosComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [!AuthGuard] },
   { path: '', redirectTo: '/pokemons', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(mainRoutes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

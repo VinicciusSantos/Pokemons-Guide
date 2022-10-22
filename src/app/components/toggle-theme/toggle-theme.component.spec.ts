@@ -27,6 +27,7 @@ describe('ToggleThemeComponent', () => {
     const root = document.getElementsByTagName('body');
     const element = screen.getByTestId('toggle-theme');
     fireEvent.click(element);
+    expect(element).toBeChecked();
     expect(root[0]).toHaveClass('dark-mode');
     expect(localStorage.getItem('user-theme')).toEqual('dark-mode');
   });

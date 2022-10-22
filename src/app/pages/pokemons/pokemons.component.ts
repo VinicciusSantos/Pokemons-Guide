@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Result } from 'src/app/models/root';
 import { types } from 'src/app/models/types';
+import { TitleService } from 'src/app/services/title.service';
 
 import { Pokemon } from '../../models/pokemon';
 import { PokemonsService } from '../../services/pokemons.service';
@@ -12,7 +13,10 @@ import { PokemonsService } from '../../services/pokemons.service';
   styleUrls: ['./pokemons.component.scss'],
 })
 export class PokemonsComponent implements OnInit {
-  constructor(private pokemonsService: PokemonsService, private _title: Title) {
+  constructor(
+    private pokemonsService: PokemonsService,
+    private _titleService: TitleService
+  ) {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) this.loadMore();
@@ -59,11 +63,8 @@ export class PokemonsComponent implements OnInit {
     this.loadPokemons(this.offset, this.limit);
   }
 
-  favIcon: any = document.getElementById('appIcon');
-
   ngOnInit() {
-    this.favIcon.href = '../../../assets/pokeball.png';
-    this._title.setTitle('Pokemons');
+    this._titleService.changeTitle('Pokemons', 'pokeball.png');
     const button = document.getElementById('load-more');
     if (button) this.observer.observe(button);
     this.loadPokemons(this.offset, this.limit);

@@ -1,7 +1,7 @@
 import { ModalComponent } from '../modal/modal.component';
 import { CardPokemonComponent } from './card-pokemon.component';
 import { render, fireEvent, screen } from '@testing-library/angular';
-import { defaultTest } from 'src/app/models/pokemon-id/default-test';
+import { defaultTest } from 'src/app/models/defaultTest';
 
 const sut = async () => {
   await render(CardPokemonComponent, {
