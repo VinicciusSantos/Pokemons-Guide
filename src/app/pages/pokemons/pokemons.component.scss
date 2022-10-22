@@ -34,23 +34,6 @@
       }
     }
 
-    .filter-button {
-      height: 100%;
-      padding: 0 10px;
-      margin-left: 8px;
-      border: none;
-      border-radius: 5px;
-      background-color: var(--tertiary-1);
-      color: var(--font-color);
-    }
-
-    .menu-dropdown {
-      border: none;
-      box-shadow: 0 0 3px var(--black-transparence-15);
-      background-color: var(--tertiary-1);
-      color: var(--font-color);
-    }
-
     form {
       text-transform: capitalize;
     }

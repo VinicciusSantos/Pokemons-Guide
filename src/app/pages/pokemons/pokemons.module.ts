@@ -10,6 +10,7 @@ import { HeaderModule } from '../../components/header/header.module';
 import { CardPokemonComponent } from './card-pokemon/card-pokemon.component';
 import { PokemonsComponent } from './pokemons.component';
 import { ModalComponent } from './modal/modal.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,11 @@ import { ModalComponent } from './modal/modal.component';
     FormsModule,
     AppZorroModule,
   ],
-  declarations: [PokemonsComponent, CardPokemonComponent, ModalComponent],
+  declarations: [
+    PokemonsComponent,
+    CardPokemonComponent,
+    ModalComponent,
+    DropdownComponent,
+  ],
 })
 export class PokemonsModule {}

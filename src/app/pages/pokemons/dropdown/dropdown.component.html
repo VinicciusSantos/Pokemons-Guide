@@ -1,0 +1,36 @@
+<div id="container">
+  <button
+    data-testid="dropdown-button"
+    class="dropdown-button"
+    (click)="changeDropdown()">
+    {{ title }}
+    <span
+      data-testid="arrow-icon"
+      nz-icon
+      nzType="down"
+      nzTheme="outline"></span>
+  </button>
+
+  <div
+    (clickOutside)="changeDropdown()"
+    data-testid="content"
+    class="content"
+    [ngClass]="{
+      'open-dropdown': isOpen,
+      'closed-dropdown': !isOpen
+    }">
+    <ul>
+      <li
+        *ngFor="let type of pokemonTypes"
+        [routerLink]="['/pokemons']"
+        [queryParams]="{ type: type }"
+        (click)="changeDropdown()">
+        <img
+          height="15px"
+          [src]="'../../../../assets/types/' + type + '.png'"
+          [alt]="'type ' + type" />
+        <span>{{ type }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Pok, PokemonsByTypes } from 'src/app/models/pokemonsByTypes';
 import { Result } from 'src/app/models/root';
 import { types } from 'src/app/models/types';
 import { TitleService } from 'src/app/services/title.service';
@@ -15,11 +17,12 @@ import { PokemonsService } from '../../services/pokemons.service';
 export class PokemonsComponent implements OnInit {
   constructor(
     private pokemonsService: PokemonsService,
-    private _titleService: TitleService
+    private _titleService: TitleService,
+    private route: ActivatedRoute
   ) {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) this.loadMore();
+        if (e.isIntersecting && this.type === '') this.loadMore();
       });
     });
   }
@@ -34,18 +37,10 @@ export class PokemonsComponent implements OnInit {
 
   observer: IntersectionObserver;
 
-  // Função Chamada para filtrar os pokemons pelo nome na searchbar
-  filterByName(): void {
-    if (this.search === '') {
-      this.pokemons = this.initialPokemons;
-      return;
-    }
-    this.pokemons = this.initialPokemons.filter((pok: Pokemon) => {
-      return pok.name.toLowerCase().includes(this.search.toLowerCase());
-    });
-  }
+  type: string = '';
+  subscription!: Subscription;
 
-  // Função Responsável por chamar o service para receber os dados da API
+  // Função Responsável por chamar o service para receber os dados da API quando a tela é scrollada até o fim
   loadPokemons(offset: number, limit: number): void {
     this.pokemonsService.getPokemons(offset, limit).subscribe(res => {
       res.results.forEach((pok: Result) => {
@@ -63,10 +58,44 @@ export class PokemonsComponent implements OnInit {
     this.loadPokemons(this.offset, this.limit);
   }
 
+  // Função que vai fazer o filtro dos pokemons
+  async filterByType() {
+    this.initialPokemons = [];
+    this.pokemons = [];
+    await new Promise(resolve => setTimeout(resolve, 50));
+    if (this.type === '' || !this.type) {
+      this.loadPokemons(this.offset, this.limit);
+      return;
+    }
+
+    // Buscando pokemons filtrados da api
+    this.pokemonsService
+      .getPokemonsByType(this.type)
+      .subscribe((res: PokemonsByTypes) => {
+        res.pokemon.forEach((pok: Pok) => {
+          this.pokemonsService
+            .getOnePokemon(pok.pokemon.name)
+            .subscribe(res => {
+              this.initialPokemons.push(res);
+            });
+        });
+      });
+    this.pokemons = this.initialPokemons;
+  }
+
   ngOnInit() {
+    // Alterando o titulo do navegador
     this._titleService.changeTitle('Pokemons', 'pokeball.png');
+
+    // Criando observador para implementação do scroll infinito
     const button = document.getElementById('load-more');
     if (button) this.observer.observe(button);
-    this.loadPokemons(this.offset, this.limit);
+
+    // Buscando o query do tipo de pokemon na url
+    this.subscription = this.route.queryParams.subscribe((queryParams: any) => {
+      this.type = queryParams['type'];
+    });
+
+    this.filterByType();
   }
 }

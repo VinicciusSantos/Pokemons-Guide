@@ -6,38 +6,10 @@
   <div id="cont-filtros">
     <div id="cont-input">
       <span nz-icon nzType="search" nzTheme="outline"></span>
-      <input
-        type="search"
-        [(ngModel)]="search"
-        placeholder="Search here..."
-        (ngModelChange)="filterByName()" />
+      <input type="search" [(ngModel)]="search" placeholder="Search here..." />
     </div>
 
-    <div ngbDropdown class="d-inline-block">
-      <button type="button" class="filter-button" ngbDropdownToggle>
-        Filter
-      </button>
-      <div
-        class="menu-dropdown"
-        ngbDropdownMenu
-        aria-labelledby="dropdownForm1">
-        <form class="px-4 py-3">
-          <div class="form-check" *ngFor="let tipo of types">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="dropdownCheck" />
-            <label class="form-check-label" for="dropdownCheck">
-              <img
-                [src]="'../../../assets/types/' + tipo + '.png'"
-                [alt]="tipo"
-                width="15px" />
-              {{ tipo }}
-            </label>
-          </div>
-        </form>
-      </div>
-    </div>
+    <app-dropdown title="Filtros" (typeChange)="filterByType()"></app-dropdown>
   </div>
 
   <ul id="cont-cards">

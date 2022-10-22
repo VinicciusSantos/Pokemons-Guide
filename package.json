@@ -28,6 +28,7 @@
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
     "@popperjs/core": "^2.10.2",
     "@types/crypto-js": "^4.1.1",
+    "angular2-click-outside": "^0.1.0",
     "bootstrap": "^5.2.0",
     "crypto-js": "^4.1.1",
     "jest": "^28.1.3",
