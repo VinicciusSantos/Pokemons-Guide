@@ -3,6 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from './guards/login.guard';
 
 export const mainRoutes: Routes = [
   {
@@ -16,7 +17,7 @@ export const mainRoutes: Routes = [
     component: FavoritosComponent,
     canActivate: [AuthGuard],
   },
-  { path: 'login', component: LoginComponent, canActivate: [!AuthGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: '', redirectTo: '/pokemons', pathMatch: 'full' },
 ];
 

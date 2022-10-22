@@ -1,3 +1,5 @@
+# Pokémons Guide
+
 ![img](./src/assets/title.png)
 
 ![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
@@ -8,6 +10,11 @@
 
 ## Run Project
 
--  Run `git clone https://github.com/VinicciusSantos/Brisalabs-PokeAPI.git` to get a copy of the repository;
--  Run `npm install` to get all packages;
--  run `ng serve --open` to run the server in localhost.
+- Run `git clone https://github.com/VinicciusSantos/Pokemons-Guide.git`;
+- Run `yarn` to get all packages;
+- run `ng serve --open` to run the server in localhost.
+
+## Login
+
+- Usuario: Admin
+- Senha: Admin
