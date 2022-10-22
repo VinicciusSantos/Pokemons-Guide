@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { FavoritosModule } from './pages/favoritos/favoritos.module';
 import { LoginModule } from './pages/login/login.module';
 import { AppZorroModule } from './styles/app-zorro.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(en);
 
@@ -23,6 +24,7 @@ registerLocaleData(en);
     AppZorroModule,
     LoginModule,
     FavoritosModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
