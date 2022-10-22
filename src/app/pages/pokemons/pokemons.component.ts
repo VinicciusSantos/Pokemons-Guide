@@ -61,13 +61,19 @@ export class PokemonsComponent implements OnInit {
 
   // Função que vai fazer o filtro dos pokemons
   async filterByType() {
-    this.initialPokemons = [];
-    this.pokemons = [];
+    const oldType = this.type;
+    // delay para o observador conseguir identificar o query param
     await new Promise(resolve => setTimeout(resolve, 50));
+
     if (this.type === '' || !this.type) {
       this.loadPokemons(this.offset, this.limit);
       return;
     }
+
+    if (oldType === this.type) return;
+
+    this.initialPokemons = [];
+    this.pokemons = [];
 
     // Buscando pokemons filtrados da api
     this.pokemonsService
