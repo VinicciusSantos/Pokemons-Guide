@@ -70,7 +70,7 @@ export class PokemonsComponent implements OnInit {
       return;
     }
 
-    if (oldType === this.type) return;
+    if (oldType === this.type && this.pokemons.length > 0) return;
 
     this.initialPokemons = [];
     this.pokemons = [];
