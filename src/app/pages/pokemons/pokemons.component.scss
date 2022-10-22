@@ -2,17 +2,16 @@
   width: 100vw;
   height: 100vh;
   background-color: var(--tertiary-2);
-
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  #contFiltros {
+  #cont-filtros {
     display: flex;
     width: 90vw;
     margin: 15px 0;
 
-    #contInput {
+    #cont-input {
       display: flex;
       align-items: center;
       background-color: var(--tertiary-1);
@@ -25,7 +24,7 @@
         font-size: 15px;
         line-height: 15px;
       }
-      
+
       input {
         background-color: transparent;
         margin-left: 10px;
@@ -35,7 +34,7 @@
       }
     }
 
-    .filterButton {
+    .filter-button {
       height: 100%;
       padding: 0 10px;
       margin-left: 8px;
@@ -43,7 +42,6 @@
       border-radius: 5px;
       background-color: var(--tertiary-1);
       color: var(--font-color);
-
     }
 
     .menu-dropdown {
@@ -58,7 +56,7 @@
     }
   }
 
-  #contCards {
+  #cont-cards {
     z-index: 1;
     overflow-y: scroll;
     width: 90vw;

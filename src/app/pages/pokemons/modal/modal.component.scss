@@ -4,7 +4,6 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,20 +16,20 @@
     width: 100vw;
     height: 100vh;
     background-color: var(--black-transparence-45);
-    transition-duration: .5s;
+    transition-duration: 0.5s;
     z-index: 1;
-    animation: open-background .5s;
+    animation: open-background 0.5s;
   }
 
   .bg-closing {
-    transition-duration: .5s;
+    transition-duration: 0.5s;
     opacity: 0;
   }
 
   > img {
     z-index: 2;
     width: 100px;
-    animation: pokeballIn .7s;
+    animation: pokeball-in 0.7s;
     animation-fill-mode: forwards;
     position: absolute;
   }
@@ -38,7 +37,7 @@
   .content {
     visibility: hidden;
     z-index: 2;
-    animation: open .4s .6s;
+    animation: open 0.4s 0.6s;
     animation-fill-mode: forwards;
     height: 80%;
     color: var(--font-coolor);
@@ -88,10 +87,10 @@
           font-size: 15px;
           border: none;
           background-color: transparent;
-          transition-duration: .5s;
+          transition-duration: 0.5s;
 
           &:hover {
-            transition-duration: .5s;
+            transition-duration: 0.5s;
             transform: rotate(180deg);
           }
         }
@@ -101,7 +100,7 @@
         display: block;
         width: 100%;
         background-color: var(--black-transparence-15);
-        opacity: .5;
+        opacity: 0.5;
         height: 1px;
       }
 
@@ -111,7 +110,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: 5000%;
-        filter: brightness(1) opacity(.2) saturate(1.5);
+        filter: brightness(1) opacity(0.2) saturate(1.5);
         margin-left: 0;
         position: absolute;
         top: 0;
@@ -132,7 +131,7 @@
   }
 
   .content-closing {
-    animation: close .5s;
+    animation: close 0.5s;
     animation-fill-mode: forwards;
   }
 }
@@ -142,6 +141,7 @@
     visibility: visible;
     transform: scale(0);
   }
+
   to {
     visibility: visible;
     transform: scale(1);
@@ -151,8 +151,9 @@
 @keyframes close {
   from {
     visibility: visible;
-    transform: tranlateY(0);
+    transform: translateY(0);
   }
+
   to {
     visibility: visible;
     transform: translateY(100vh);
@@ -164,8 +165,8 @@
   to { opacity: 1; }
 }
 
-@keyframes pokeballIn {
+@keyframes pokeball-in {
   0% { transform: translateY(100vh) rotate(360deg); }
   70% { transform: translateY(0) rotate(-360deg); }
-  100% { transform: scale(.01); }
+  100% { transform: scale(0.01); }
 }

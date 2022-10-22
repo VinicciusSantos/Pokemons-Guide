@@ -3,14 +3,13 @@
   width: 90%;
   margin: 20px;
   height: 90%;
-
   background-color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 4px 4px 4px var(--black-transparence-15);
   border-radius: 15px;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   cursor: pointer;
   z-index: 0;
 
@@ -35,14 +34,13 @@
     margin-bottom: 20px;
   }
 
-  #contTypes {
+  #cont-types {
     width: calc(90% - 20px);
     height: auto;
     border-radius: 5px;
     background-color: var(--white-transparence-45);
     margin-bottom: 30px;
     padding: 10px;
-
     display: flex;
     align-items: center;
 
@@ -64,7 +62,7 @@
   }
 
   &:hover {
-    transition-duration: .2s;
+    transition-duration: 0.2s;
     transform: scale(1.01);
   }
 }

@@ -6,9 +6,8 @@
 ![SASS](https://img.shields.io/badge/SCSS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 
-
 ## Run Project
 
-- Run `git clone https://github.com/VinicciusSantos/Brisalabs-PokeAPI.git` to get a copy of the repository;
-- Run `npm install` to get all packages;
-- run `ng serve --open` to run the server in localhost.
+-  Run `git clone https://github.com/VinicciusSantos/Brisalabs-PokeAPI.git` to get a copy of the repository;
+-  Run `npm install` to get all packages;
+-  run `ng serve --open` to run the server in localhost.

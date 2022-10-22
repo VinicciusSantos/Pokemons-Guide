@@ -6,7 +6,7 @@
   <h2>{{ pokemon.name }}</h2>
   <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
 
-  <div id="contTypes">
+  <div id="cont-types">
     <img
       width="50px"
       *ngFor="let tipo of pokemon.types"

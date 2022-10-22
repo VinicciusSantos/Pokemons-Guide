@@ -3,8 +3,8 @@
 <div id="container">
   <app-header></app-header>
 
-  <div id="contFiltros">
-    <div id="contInput">
+  <div id="cont-filtros">
+    <div id="cont-input">
       <span nz-icon nzType="search" nzTheme="outline"></span>
       <input
         type="search"
@@ -14,7 +14,7 @@
     </div>
 
     <div ngbDropdown class="d-inline-block">
-      <button type="button" class="filterButton" ngbDropdownToggle>
+      <button type="button" class="filter-button" ngbDropdownToggle>
         Filter
       </button>
       <div
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <ul id="contCards">
+  <ul id="cont-cards">
     <app-card-pokemon
       [routerLink]="[pok.name]"
       *ngFor="let pok of pokemons"
