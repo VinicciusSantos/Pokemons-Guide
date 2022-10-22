@@ -22,7 +22,8 @@ export class PokemonsComponent implements OnInit {
   ) {
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting && this.type === '') this.loadMore();
+        if (e.isIntersecting && (this.type === '' || !this.type))
+          this.loadMore();
       });
     });
   }
