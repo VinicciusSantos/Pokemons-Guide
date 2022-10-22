@@ -1,11 +1,10 @@
 @import url("./buttons.scss");
 @import url("./fonts/index.scss");
 @import url("./colors/index.scss");
-@import 'bootstrap/scss/bootstrap';
+@import url("bootstrap/scss/bootstrap");
 
 * {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-
