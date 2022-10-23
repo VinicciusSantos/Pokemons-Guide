@@ -1,3 +1,4 @@
+import { FavoriteService } from './../../services/favorite.service';
 import { TitleService } from 'src/app/services/title.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favoritos.component.scss'],
 })
 export class FavoritosComponent implements OnInit {
-  constructor(private _TitleService: TitleService) {}
+  constructor(
+    private _titleService: TitleService,
+    private _favoriteService: FavoriteService
+  ) {}
+
+  favoritos: any = [];
 
   ngOnInit(): void {
-    this._TitleService.changeTitle('Favoritos', 'star.png');
+    this._titleService.changeTitle('Favoritos', 'star.png');
+    this.favoritos = this._favoriteService.getFavoritos();
   }
 }

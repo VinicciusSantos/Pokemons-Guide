@@ -10,7 +10,6 @@
 
   <ul id="cont-cards">
     <app-card-pokemon
-      [routerLink]="[pok.name]"
       *ngFor="let pok of pokemons"
       [pokemon]="pok"></app-card-pokemon>
     <span nz-icon [nzType]="'sync'" [nzSpin]="true" id="load-more"></span>

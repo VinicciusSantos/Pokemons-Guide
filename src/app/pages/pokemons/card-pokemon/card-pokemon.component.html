@@ -1,10 +1,11 @@
-<li
-  data-testid="container-pokemon"
-  id="container-pokemon"
-  *ngIf="pokemon"
-  (click)="changeModal(true)">
-  <h2>{{ pokemon.name }}</h2>
-  <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+<li data-testid="container-pokemon" id="container-pokemon" *ngIf="pokemon">
+  <h2 [routerLink]="[pokemon.name]">{{ pokemon.name }}</h2>
+  <div id="cont-img">
+    <img
+      [src]="pokemon.sprites.front_default"
+      [alt]="pokemon.name"
+      [routerLink]="[pokemon.name]" />
+  </div>
 
   <div id="cont-types">
     <img
@@ -13,10 +14,23 @@
       [title]="'type ' + tipo.type.name"
       [alt]="'type ' + tipo.type.name"
       data-testid="pokemon-type-image"
+      [routerLink]="[pokemon.name]"
       [src]="'../../../assets/types/' + tipo.type.name + '.png'" />
+
+    <span
+      id="fav-icon"
+      nz-icon
+      nzType="heart"
+      nzTheme="fill"
+      [ngClass]="{
+        'favorite-checked': isFavorited,
+        'favorite-unchecked': !isFavorited
+      }"
+      (click)="changeFavorite()"></span>
   </div>
 
   <div
+    [routerLink]="[pokemon.name]"
     id="background"
     [ngStyle]="{
       'background-image': 'url(' + pokemon.sprites.front_default + ')'
