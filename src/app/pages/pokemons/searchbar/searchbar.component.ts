@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PokemonsService } from './../../../services/pokemons.service';
 import { RootObject, Result } from './../../../models/root';
 import { Component, OnInit } from '@angular/core';
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./searchbar.component.scss'],
 })
 export class SearchbarComponent implements OnInit {
-  constructor(private _pokemonsService: PokemonsService) {}
+  constructor(
+    private _pokemonsService: PokemonsService,
+    private _router: Router
+  ) {}
   search: string = '';
   pokemons!: RootObject;
   filterPokemons: any[] = [];
@@ -18,13 +22,21 @@ export class SearchbarComponent implements OnInit {
     this.filterPokemons = [];
   }
 
+  onSubmit(): void {
+    if (this.filterPokemons.length === 0) return;
+    this._router.navigate(['/pokemons', this.filterPokemons[0]]);
+    this.closeDropdown();
+  }
+
   changeSeach() {
     if (this.search === '' || !this.search) {
       return this.closeDropdown();
     }
     this.filterPokemons = this.pokemons.results
       .filter((pok: Result) => {
-        return pok.name.includes(this.search);
+        return pok.name
+          .toLowerCase()
+          .includes(this.search.trim().toLowerCase());
       })
       .map((p: Result) => p.name);
   }

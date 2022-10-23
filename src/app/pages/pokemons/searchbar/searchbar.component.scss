@@ -24,7 +24,26 @@
   .recomendations {
     position: absolute;
     top: calc(100% + 8px);
-    background-color: red !important;
     z-index: 2;
+    background-color: var(--tertiary-2);
+    transition-duration: .3s;
+    margin: 0;
+    padding: 5px;
+    box-shadow: 4px 4px 4px var(--black-transparence-15);
+    max-height: 60vh;
+    width: auto;
+    overflow-y: scroll;
+
+    li {
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      text-transform: capitalize;
+
+      &:hover {
+        transition-duration: .3s;
+        background-color: var(--tertiary-1);
+      }
+    }
   }
 }

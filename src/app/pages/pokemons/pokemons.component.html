@@ -4,10 +4,6 @@
   <app-header></app-header>
 
   <div id="cont-filtros">
-    <!-- <div id="cont-input">
-      <span nz-icon nzType="search" nzTheme="outline"></span>
-      <input type="search" [(ngModel)]="search" placeholder="Search here..." />
-    </div> -->
     <app-searchbar></app-searchbar>
     <app-dropdown title="Filtros" (typeChange)="filterByType()"></app-dropdown>
   </div>

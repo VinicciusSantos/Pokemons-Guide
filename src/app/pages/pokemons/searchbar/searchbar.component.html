@@ -3,6 +3,7 @@
   <input
     type="search"
     [(ngModel)]="search"
+    (keyup.enter)="onSubmit()"
     (ngModelChange)="changeSeach()"
     placeholder="Search here..." />
 
