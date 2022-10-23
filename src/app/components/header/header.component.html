@@ -1,6 +1,10 @@
 <header>
   <section>
-    <img [src]="image" alt="logo" data-testid="logo" />
+    <img
+      [src]="image"
+      alt="logo"
+      data-testid="logo"
+      [routerLink]="['/pokemons']" />
     <nav>
       <ul>
         <li *ngFor="let page of pages" data-testid="page">

@@ -1,5 +1,6 @@
 #container {
   position: absolute;
+  height: 34px;
 
   .dropdown-button {
     height: 100%;
@@ -9,18 +10,33 @@
     border-radius: 5px;
     background-color: var(--tertiary-1);
     color: var(--font-color);
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 10px;
+      margin-left: 5px;
+    }
   }
 
   .content {
     z-index: 2;
     position: absolute;
-    background-color: white;
     margin: 8px;
     padding: 8px;
     border-radius: 5px;
     box-shadow: 0 0 3px var(--black-transparence-30);
     background-color: var(--tertiary-2);
     color: var(--font-color);
+
+    h5 {
+      font-size: 17px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-bottom: 5px;
+      margin: 0;
+      border-bottom: 1px var(--black-transparence-30) solid;
+    }
 
     ul {
       z-index: 2;
@@ -32,7 +48,7 @@
 
       li {
         padding: 5px;
-        transition-duration: .2s;
+        transition-duration: 0.2s;
         cursor: pointer;
         border-radius: 3px;
 
@@ -41,7 +57,7 @@
         }
 
         &:hover {
-          transition-duration: .2s;
+          transition-duration: 0.2s;
           background-color: var(--tertiary-1);
         }
       }

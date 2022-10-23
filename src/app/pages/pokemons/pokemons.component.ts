@@ -75,6 +75,12 @@ export class PokemonsComponent implements OnInit {
     this.initialPokemons = [];
     this.pokemons = [];
 
+    // Atualizando o título e o favicom da página
+    this._titleService.changeTitle(
+      `${this.type} Pokémons`,
+      `/types/${this.type}.png`
+    );
+
     // Buscando pokemons filtrados da api
     this.pokemonsService
       .getPokemonsByType(this.type)
