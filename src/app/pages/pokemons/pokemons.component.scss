@@ -11,29 +11,6 @@
     width: 90vw;
     margin: 15px 0;
 
-    #cont-input {
-      display: flex;
-      align-items: center;
-      background-color: var(--tertiary-1);
-      padding: 5px 15px;
-      border-radius: 5px;
-      width: 30%;
-
-      * {
-        color: var(--font-color);
-        font-size: 15px;
-        line-height: 15px;
-      }
-
-      input {
-        background-color: transparent;
-        margin-left: 10px;
-        border: 0;
-        outline: none;
-        width: 100%;
-      }
-    }
-
     form {
       text-transform: capitalize;
     }

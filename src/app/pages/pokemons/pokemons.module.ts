@@ -11,6 +11,7 @@ import { CardPokemonComponent } from './card-pokemon/card-pokemon.component';
 import { PokemonsComponent } from './pokemons.component';
 import { ModalComponent } from './modal/modal.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { DropdownComponent } from './dropdown/dropdown.component';
     CardPokemonComponent,
     ModalComponent,
     DropdownComponent,
+    SearchbarComponent,
   ],
 })
 export class PokemonsModule {}

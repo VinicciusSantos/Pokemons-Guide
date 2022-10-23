@@ -1,0 +1,17 @@
+<div id="container">
+  <span nz-icon nzType="search" nzTheme="outline"></span>
+  <input
+    type="search"
+    [(ngModel)]="search"
+    (ngModelChange)="changeSeach()"
+    placeholder="Search here..." />
+
+  <ul *ngIf="filterPokemons.length > 0" class="recomendations">
+    <li
+      *ngFor="let pok of filterPokemons"
+      (click)="closeDropdown()"
+      [routerLink]="['/pokemons', pok]">
+      {{ pok }}
+    </li>
+  </ul>
+</div>

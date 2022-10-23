@@ -25,7 +25,7 @@ export class PokemonsService {
 
   getPokemons(offset: number, limit: number): Observable<RootObject> {
     return this.httpClient.get<RootObject>(
-      `${this.url}/pokemon?offset=${offset}limit=${limit}`
+      `${this.url}/pokemon?offset=${offset}&limit=${limit}`
     );
   }
 

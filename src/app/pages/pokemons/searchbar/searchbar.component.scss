@@ -1,0 +1,30 @@
+#container {
+  display: flex;
+  align-items: center;
+  background-color: var(--tertiary-1);
+  padding: 5px 15px;
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+
+  * {
+    color: var(--font-color);
+    font-size: 15px;
+    line-height: 15px;
+  }
+
+  input {
+    background-color: transparent;
+    margin-left: 10px;
+    border: 0;
+    outline: none;
+    width: 100%;
+  }
+
+  .recomendations {
+    position: absolute;
+    top: calc(100% + 8px);
+    background-color: red !important;
+    z-index: 2;
+  }
+}
