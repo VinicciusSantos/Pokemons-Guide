@@ -22,6 +22,10 @@ export class FavoriteService {
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
   }
 
+  removeAllFaforites() {
+    localStorage.removeItem('favoritos');
+  }
+
   changeFavorite(id: number) {
     this.isfavorited(id) ? this.removeFavorite(id) : this.addFavorite(id);
   }

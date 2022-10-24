@@ -24,4 +24,8 @@ describe('TesteService', () => {
   it('should return a pokemon', async () => {
     expect(service.getOnePokemon('pikachu')).not.toBeNull();
   });
+
+  it('should get a list of pokemons with the same type', async () => {
+    expect(service.getPokemonsByType('normal')).not.toBeNull();
+  });
 });

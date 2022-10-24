@@ -1,14 +1,23 @@
-<div id="container">
-  <span nz-icon nzType="search" nzTheme="outline"></span>
+<div id="container" data-testid="searchbar">
+  <span
+    nz-icon
+    nzType="search"
+    nzTheme="outline"
+    data-testid="search icon"></span>
   <input
+    data-testid="searchInput"
     type="search"
     [(ngModel)]="search"
     (keyup.enter)="onSubmit()"
     (ngModelChange)="changeSeach()"
     placeholder="Search here..." />
 
-  <ul *ngIf="filterPokemons.length > 0" class="recomendations">
+  <ul
+    *ngIf="filterPokemons.length > 0"
+    class="recomendations"
+    data-testid="dropdown">
     <li
+      data-testid="pokemon"
       *ngFor="let pok of filterPokemons"
       (click)="closeDropdown()"
       [routerLink]="['/pokemons', pok]">
