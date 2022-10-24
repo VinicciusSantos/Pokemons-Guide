@@ -1,3 +1,4 @@
+import { RotaNaoEncontradaComponent } from './pages/rota-nao-encontrada/rota-nao-encontrada.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/login/login.component';
 import { FavoritosComponent } from './pages/favoritos/favoritos.component';
@@ -19,6 +20,7 @@ export const mainRoutes: Routes = [
   },
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: '', redirectTo: '/pokemons', pathMatch: 'full' },
+  { path: '**', component: RotaNaoEncontradaComponent },
 ];
 
 @NgModule({

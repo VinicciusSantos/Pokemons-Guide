@@ -11,11 +11,12 @@ import { FavoritosModule } from './pages/favoritos/favoritos.module';
 import { LoginModule } from './pages/login/login.module';
 import { AppZorroModule } from './styles/app-zorro.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RotaNaoEncontradaComponent } from './pages/rota-nao-encontrada/rota-nao-encontrada.component';
 
 registerLocaleData(en);
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, RotaNaoEncontradaComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
