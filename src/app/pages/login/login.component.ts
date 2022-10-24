@@ -14,8 +14,6 @@ import {
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm!: UntypedFormGroup;
-
   constructor(
     private formBuilder: UntypedFormBuilder,
     private authService: AuthService,
@@ -25,16 +23,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.changeTitle('Login', 'favicon.ico');
-    this.loginForm = this.formBuilder.group({
-      usuario: [null, [Validators.required]],
-      senha: [null, [Validators.required]],
-    });
   }
 
-  onSubmit() {
-    let isLogged = this.authService.fazLogin(this.loginForm.value);
-    if (isLogged) {
-      this.router.navigate(['/']);
-    }
+  onSubmit(form: any) {
+    console.log(form.form.value);
+    // let isLogged = this.authService.fazLogin(form);
+    // if (isLogged) {
+    //   this.router.navigate(['/']);
+    // }
   }
 }

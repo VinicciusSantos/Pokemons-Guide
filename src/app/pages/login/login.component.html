@@ -4,12 +4,33 @@
     <div id="left-banner"></div>
     <div id="cont-form">
       <img src="../../../assets/title.png" alt="title" width="80%" />
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-        <input type="text" formControlName="usuario" placeholder="username" />
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <input
+          type="text"
+          name="usuario"
+          placeholder="username"
+          ngModel
+          #usuario
+          required />
+        <div class="error-input">
+          <span nz-icon nzType="exclamation-circle" nzTheme="outline"></span>
+          <p class="error-msg">Insira um username válido</p>
+        </div>
 
-        <input type="password" formControlName="senha" placeholder="password" />
+        <input
+          name="senha"
+          type="password"
+          placeholder="password"
+          ngModel
+          required />
+        <div class="error-input">
+          <span nz-icon nzType="exclamation-circle" nzTheme="outline"></span>
+          <p class="error-msg">Insira uma senha válida</p>
+        </div>
 
-        <button type="submit" class="btn-secondary">LOGIN</button>
+        <button type="submit" class="btn-secondary">
+          <span nz-icon nzType="login" nzTheme="outline"></span>LOGIN
+        </button>
       </form>
     </div>
   </main>
