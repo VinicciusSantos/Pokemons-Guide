@@ -10,9 +10,9 @@
           name="usuario"
           placeholder="username"
           ngModel
-          #usuario
+          #usuario="ngModel"
           required />
-        <div class="error-input">
+        <div class="error-input" *ngIf="!usuario.valid && usuario.touched">
           <span nz-icon nzType="exclamation-circle" nzTheme="outline"></span>
           <p class="error-msg">Insira um username válido</p>
         </div>
@@ -21,9 +21,10 @@
           name="senha"
           type="password"
           placeholder="password"
+          #senha="ngModel"
           ngModel
           required />
-        <div class="error-input">
+        <div class="error-input" *ngIf="!senha.valid && senha.touched">
           <span nz-icon nzType="exclamation-circle" nzTheme="outline"></span>
           <p class="error-msg">Insira uma senha válida</p>
         </div>
