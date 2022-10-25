@@ -109,4 +109,10 @@
 
 .favorite-checked {
   color: rgb(255, 52, 52);
+  animation: heart .3s;
+}
+
+@keyframes heart {
+  70% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
