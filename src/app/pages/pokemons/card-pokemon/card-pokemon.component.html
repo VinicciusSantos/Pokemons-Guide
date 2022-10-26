@@ -17,16 +17,16 @@
       [routerLink]="[pokemon.name]"
       [src]="'../../../assets/types/' + tipo.type.name + '.png'" />
 
-    <span
+    <button
       id="fav-icon"
-      nz-icon
-      nzType="heart"
-      nzTheme="fill"
+      data-testid="fav-icon"
+      (click)="changeFavorite()"
       [ngClass]="{
         'favorite-checked': isFavorited,
         'favorite-unchecked': !isFavorited
-      }"
-      (click)="changeFavorite()"></span>
+      }">
+      <span role="button" nz-icon nzType="heart" nzTheme="fill"></span>
+    </button>
   </div>
 
   <div

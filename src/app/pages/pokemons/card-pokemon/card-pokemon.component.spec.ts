@@ -45,4 +45,15 @@ describe('CardPokemonComponent', () => {
     const elements = screen.getAllByTestId('pokemon-type-image');
     expect(elements.length).toBe(defaultTest.types.length);
   });
+
+  it('should render a favorite icon', async () => {
+    const icon = screen.getByTestId('fav-icon');
+    expect(icon).toBeTruthy();
+  });
+
+  it('should favorite a pokemon on favorite icon click', async () => {
+    const icon = screen.getByTestId('fav-icon');
+    fireEvent.click(icon);
+    expect(icon).toHaveClass('favorite-checked');
+  });
 });

@@ -44,7 +44,6 @@ export class SearchbarComponent implements OnInit {
   ngOnInit(): void {
     this._pokemonsService.getPokemons(0, 9999).subscribe((res: RootObject) => {
       this.pokemons = res;
-      console.log(res);
     });
   }
 }
