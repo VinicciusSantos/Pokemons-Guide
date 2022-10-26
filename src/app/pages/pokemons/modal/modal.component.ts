@@ -1,15 +1,17 @@
-import { TitleService } from './../../../services/title.service';
-import { PokemonsService } from './../../../services/pokemons.service';
-import { Pokemon } from '../../../models/pokemon';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
+import { Pokemon } from '../../../models/pokemon';
+import { PokemonsService } from './../../../services/pokemons.service';
+import { TitleService } from './../../../services/title.service';
 
 @Component({
   selector: 'app-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent implements OnInit, OnDestroy {
   isOpen: boolean = true;
   pokemon!: Pokemon;
 
@@ -21,6 +23,7 @@ export class ModalComponent implements OnInit {
   ) {}
 
   PokemonName: string = '';
+  subs: Subscription[] = [];
 
   async delay() {
     await Promise.resolve();
@@ -36,15 +39,23 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._route.params.subscribe((params: any) => {
-      this.PokemonName = params['name'] || 1;
-    });
-    this._pokService
-      .getOnePokemon(this.PokemonName)
-      .subscribe((res: Pokemon) => {
-        this.pokemon = res;
-        this._titleService.changeTitle(res.name);
-        this._titleService.changeFaviconUrl(res.sprites.front_default);
-      });
+    this.subs.push(
+      this._route.params.subscribe((params: any) => {
+        this.PokemonName = params['name'] || 1;
+      })
+    );
+    this.subs.push(
+      this._pokService
+        .getOnePokemon(this.PokemonName)
+        .subscribe((res: Pokemon) => {
+          this.pokemon = res;
+          this._titleService.changeTitle(res.name);
+          this._titleService.changeFaviconUrl(res.sprites.front_default);
+        })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe());
   }
 }

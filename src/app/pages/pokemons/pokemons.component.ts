@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { Pok, PokemonsByTypes } from 'src/app/models/pokemonsByTypes';
 import { Result } from 'src/app/models/root';
 import { types } from 'src/app/models/types';
@@ -14,7 +14,7 @@ import { PokemonsService } from '../../services/pokemons.service';
   templateUrl: './pokemons.component.html',
   styleUrls: ['./pokemons.component.scss'],
 })
-export class PokemonsComponent implements OnInit {
+export class PokemonsComponent implements OnInit, OnDestroy {
   constructor(
     private pokemonsService: PokemonsService,
     private _titleService: TitleService,
@@ -40,23 +40,30 @@ export class PokemonsComponent implements OnInit {
 
   type: string = '';
   subscription!: Subscription;
+  subs: Subscription[] = [];
 
   // Função Responsável por chamar o service para receber os dados da API quando a tela é scrollada até o fim
   loadPokemons(offset: number, limit: number): void {
-    this.pokemonsService.getPokemons(offset, limit).subscribe(res => {
-      res.results.forEach((pok: Result) => {
-        this.pokemonsService.getOnePokemon(pok.name).subscribe(res => {
-          this.initialPokemons.push(res);
+    this.subs.push(
+      this.pokemonsService.getPokemons(offset, limit).subscribe(res => {
+        res.results.forEach((pok: Result) => {
+          this.subs.push(
+            this.pokemonsService.getOnePokemon(pok.name).subscribe(res => {
+              this.initialPokemons.push(res);
+            })
+          );
         });
-      });
-    });
+      })
+    );
     this.pokemons = this.initialPokemons;
   }
 
   // função usada quando é necessário carregar mais um grupo de pokemons na tela
   async loadMore() {
-    this.offset += this.limit;
-    this.loadPokemons(this.offset, this.limit);
+    if (this.initialPokemons.length > 0) {
+      this.offset += this.limit;
+      this.loadPokemons(this.offset, this.limit);
+    }
   }
 
   // Função que vai fazer o filtro dos pokemons
@@ -82,17 +89,21 @@ export class PokemonsComponent implements OnInit {
     );
 
     // Buscando pokemons filtrados da api
-    this.pokemonsService
-      .getPokemonsByType(this.type)
-      .subscribe((res: PokemonsByTypes) => {
-        res.pokemon.forEach((pok: Pok) => {
-          this.pokemonsService
-            .getOnePokemon(pok.pokemon.name)
-            .subscribe(res => {
-              this.initialPokemons.push(res);
-            });
-        });
-      });
+    this.subs.push(
+      this.pokemonsService
+        .getPokemonsByType(this.type)
+        .subscribe((res: PokemonsByTypes) => {
+          res.pokemon.forEach((pok: Pok) => {
+            this.subs.push(
+              this.pokemonsService
+                .getOnePokemon(pok.pokemon.name)
+                .subscribe(res => {
+                  this.initialPokemons.push(res);
+                })
+            );
+          });
+        })
+    );
     this.pokemons = this.initialPokemons;
   }
 
@@ -110,5 +121,9 @@ export class PokemonsComponent implements OnInit {
     });
 
     this.filterByType();
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe());
   }
 }

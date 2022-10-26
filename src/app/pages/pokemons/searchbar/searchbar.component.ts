@@ -1,14 +1,15 @@
+import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { PokemonsService } from './../../../services/pokemons.service';
 import { RootObject, Result } from './../../../models/root';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-searchbar',
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.scss'],
 })
-export class SearchbarComponent implements OnInit {
+export class SearchbarComponent implements OnInit, OnDestroy {
   constructor(
     private _pokemonsService: PokemonsService,
     private _router: Router
@@ -16,6 +17,7 @@ export class SearchbarComponent implements OnInit {
   search: string = '';
   pokemons!: RootObject;
   filterPokemons: any[] = [];
+  subs: Subscription[] = [];
 
   closeDropdown() {
     this.search = '';
@@ -42,8 +44,16 @@ export class SearchbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._pokemonsService.getPokemons(0, 9999).subscribe((res: RootObject) => {
-      this.pokemons = res;
-    });
+    this.subs.push(
+      this._pokemonsService
+        .getPokemons(0, 9999)
+        .subscribe((res: RootObject) => {
+          this.pokemons = res;
+        })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.forEach(sub => sub.unsubscribe());
   }
 }
