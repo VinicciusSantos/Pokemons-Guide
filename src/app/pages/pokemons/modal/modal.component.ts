@@ -25,17 +25,15 @@ export class ModalComponent implements OnInit, OnDestroy {
   PokemonName: string = '';
   subs: Subscription[] = [];
 
-  async delay() {
-    await Promise.resolve();
-  }
   isClosing = false;
   async changeModal() {
     this.isClosing = true;
-    await this.delay();
-    this.isOpen = !this.isOpen;
-    this.isClosing = false;
-    this._titleService.changeTitle('Pokemons', 'pokeball.png');
-    this._router.navigate(['/pokemons']);
+    setTimeout(() => {
+      this.isOpen = !this.isOpen;
+      this.isClosing = false;
+      this._titleService.changeTitle('Pokemons', 'pokeball.png');
+      this._router.navigate(['/pokemons']);
+    }, 500);
   }
 
   ngOnInit(): void {

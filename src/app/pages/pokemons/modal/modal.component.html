@@ -6,25 +6,17 @@
     'modal-closed': !isOpen
   }">
   <div class="content" [ngClass]="{ 'content-closing': isClosing }">
-    <div class="photos">
+    <div id="left-img">
       <img
         [src]="pokemon.sprites.front_default"
-        alt="front_default"
-        title="Skin Front Default" />
-      <img
-        [src]="pokemon.sprites.back_default"
-        alt="back_default"
-        title="Skin Back Default" />
-      <img
-        [src]="pokemon.sprites.front_shiny"
-        alt="front_shiny"
-        title="Skin Front Shiny" />
-      <img
-        [src]="pokemon.sprites.back_shiny"
-        alt="back_shiny"
-        title="Skin Back Shiny" />
+        width="100%"
+        [alt]="PokemonName" />
+      <div
+        id="background"
+        [ngStyle]="{
+          'background-image': 'url(' + pokemon.sprites.front_default + ')'
+        }"></div>
     </div>
-
     <div class="main">
       <div id="title">
         <h2>{{ pokemon.name }}</h2>
@@ -35,19 +27,24 @@
 
       <span id="divider"></span>
 
-      <div id="contTypes">
-        <img
-          width="100px"
-          *ngFor="let tipo of pokemon.types"
-          [src]="'../../../assets/types/' + tipo.type.name + '.png'"
-          alt="" />
-      </div>
-
-      <div
-        id="background"
-        [ngStyle]="{
-          'background-image': 'url(' + pokemon.sprites.front_default + ')'
-        }"></div>
+      <ul>
+        <li>Height: {{ pokemon.height }}</li>
+        <li>Weight: {{ pokemon.weight }}</li>
+        <li>
+          Abilities:
+          <ul>
+            <li *ngFor="let ab of pokemon.abilities">{{ ab.ability.name }}</li>
+          </ul>
+        </li>
+        <li>
+          Stats:
+          <ul>
+            <li *ngFor="let stat of pokemon.stats">
+              {{ stat.stat.name }}: {{ stat.base_stat }}
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 
@@ -58,3 +55,12 @@
     (click)="changeModal()"
     [ngClass]="{ 'bg-closing': isClosing }"></div>
 </div>
+
+<!-- <div id="cont-types">
+  <img
+    width="100px"
+    *ngFor="let tipo of pokemon.types"
+    width="35px"
+    [src]="'../../../assets/types/' + tipo.type.name + '.png'"
+    alt="" />
+</div> -->
