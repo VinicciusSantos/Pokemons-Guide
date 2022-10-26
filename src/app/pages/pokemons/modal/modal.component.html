@@ -36,11 +36,15 @@
             <li *ngFor="let ab of pokemon.abilities">{{ ab.ability.name }}</li>
           </ul>
         </li>
-        <li>
-          Stats:
+        <li id="status-list">
+          <span>Stats:</span>
           <ul>
             <li *ngFor="let stat of pokemon.stats">
-              {{ stat.stat.name }}: {{ stat.base_stat }}
+              <app-progress-bar
+                [title]="stat.stat.name"
+                [preenchido]="stat.base_stat"
+                [backgroundImage]="pokemon.sprites.front_default"
+                [total]="160"></app-progress-bar>
             </li>
           </ul>
         </li>

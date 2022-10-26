@@ -9,6 +9,11 @@
   align-items: center;
   z-index: 2;
 
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
   #background {
     position: absolute;
     top: 0;
@@ -118,6 +123,25 @@
       background-color: var(--black-transparence-15);
       opacity: 0.5;
       height: 1px;
+    }
+  }
+
+  #status-list {
+    span {
+      font-weight: bold;
+      margin-left: 15px;
+    }
+
+    ul {
+      background-color: var(--black-transparence-5);
+      padding: 15px;
+      padding-top: 5px;
+      border-radius: 5px;
+
+
+      li + li {
+        margin-top: 10px;
+      }
     }
   }
 

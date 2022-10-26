@@ -1,0 +1,14 @@
+<div id="progress-bar" data-testid="progress-bar">
+  <div id="title">
+    <p>{{ title }}</p>
+    <p>{{ preenchido }} pts</p>
+  </div>
+  <div id="bar">
+    <div
+      id="completed"
+      [ngStyle]="{
+        'background-image': 'url(' + backgroundImage + ')',
+        width: completed
+      }"></div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+#progress-bar {
+  width: 100%;
+
+  #title {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-size: 15px;
+      margin: 0;
+      font-weight: bold;
+      text-transform: capitalize;
+    }
+  }
+
+  #bar {
+    height: 5px;
+    width: 100%;
+    background-color: var(--black-transparence-15);
+    border-radius: 10px;
+
+    #completed {
+      height: 100%;
+      z-index: -1;
+      border-radius: inherit;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 10000%;
+      filter: brightness(1) saturate(1.5);
+      margin-left: 0;
+      border: 1px solid var(--black-transparence-15);
+    }
+  }
+}

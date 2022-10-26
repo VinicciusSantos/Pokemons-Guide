@@ -1,3 +1,4 @@
+import { ProgressBarComponent } from './../../components/progress-bar/progress-bar.component';
 import { AppZorroModule } from '../../styles/app-zorro.module';
 import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './pokemons.routing';
@@ -29,6 +30,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     ModalComponent,
     DropdownComponent,
     SearchbarComponent,
+    ProgressBarComponent,
   ],
 })
 export class PokemonsModule {}
