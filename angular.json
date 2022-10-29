@@ -33,6 +33,7 @@
               }
             ],
             "styles": [
+              "src/theme.less",
               "src/app/styles/index.scss"
             ],
             "scripts": []

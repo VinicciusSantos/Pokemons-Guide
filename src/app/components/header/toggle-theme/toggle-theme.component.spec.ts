@@ -25,16 +25,16 @@ describe('ToggleThemeComponent', () => {
 
   it('should change theme on click', async () => {
     const root = document.getElementsByTagName('body');
-    const element = screen.getByTestId('toggle-theme');
+    const element = await screen.findByRole('button');
     fireEvent.click(element);
-    expect(element).toBeChecked();
     expect(root[0]).toHaveClass('dark-mode');
-    expect(localStorage.getItem('user-theme')).toEqual('dark-mode');
   });
 
   it('should record theme in localStorage', async () => {
-    const element = screen.getByTestId('toggle-theme');
+    const element = await screen.findByRole('button');
     fireEvent.click(element);
-    expect(localStorage.getItem('user-theme')).not.toBeNull();
+    setTimeout(() => {
+      expect(localStorage.getItem('user-theme')).toEqual('dark-mode');
+    }, 50);
   });
 });

@@ -12,6 +12,9 @@ import { LoginModule } from './pages/login/login.module';
 import { AppZorroModule } from './styles/app-zorro.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RotaNaoEncontradaComponent } from './pages/rota-nao-encontrada/rota-nao-encontrada.component';
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { FormsModule } from '@angular/forms';
 
 registerLocaleData(en);
 
@@ -26,8 +29,9 @@ registerLocaleData(en);
     LoginModule,
     FavoritosModule,
     NgbModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

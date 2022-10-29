@@ -1,7 +1,7 @@
 import { HttpClientModule } from '@angular/common/http';
 import { render, screen, fireEvent } from '@testing-library/angular';
 
-import { ToggleThemeComponent } from '../toggle-theme/toggle-theme.component';
+import { ToggleThemeComponent } from './toggle-theme/toggle-theme.component';
 import { AppZorroModule } from '../../styles/app-zorro.module';
 import { HeaderComponent, HeaderProps, page } from './header.component';
 
@@ -47,12 +47,5 @@ describe('HeaderComponent', () => {
 
   it('should render a navbar with links', async () => {
     expect(screen.getAllByTestId('page').length).toBe(defaultTest.length);
-  });
-
-  it('should logout when logout button pressed', async () => {
-    const logoutButton = screen.getByTestId('logout-button');
-    fireEvent.click(logoutButton);
-    const token = localStorage.getItem('token');
-    expect(token).toBeNull();
   });
 });
