@@ -7,8 +7,8 @@
   align-items: center;
   color: var(--white);
 
-  > span {
-    animation: rotate 15s infinite linear;
+  > span:hover {
+    animation: rotate 2s;
   }
 
   .settings-dropdown {
@@ -26,5 +26,5 @@
 
 @keyframes rotate {
   from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  to { transform: rotate(180deg); }
 }

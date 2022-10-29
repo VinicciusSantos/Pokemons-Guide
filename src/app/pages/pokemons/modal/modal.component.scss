@@ -99,10 +99,11 @@
         button {
           color: var(--black-transparence-75);
           font-size: 15px;
+          display: flex;
           border: none;
           background-color: transparent;
           transition-duration: 0.5s;
-          margin-top: 3px;
+          margin-top: 10px;
 
           &:hover {
             transition-duration: 0.5s;
