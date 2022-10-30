@@ -23,16 +23,12 @@ const tier_classes: classe[] = [
   styleUrls: ['./favoritos.component.scss'],
 })
 export class FavoritosComponent implements OnInit {
-  constructor(
-    private _titleService: TitleService,
-    private _favoriteService: FavoriteService
-  ) {}
+  constructor(private _titleService: TitleService) {}
 
   favoritos: any = [];
   tiers: any[] = tier_classes;
 
   ngOnInit(): void {
     this._titleService.changeTitle('Favoritos', 'star.png');
-    this.favoritos = this._favoriteService.getFavoritos();
   }
 }

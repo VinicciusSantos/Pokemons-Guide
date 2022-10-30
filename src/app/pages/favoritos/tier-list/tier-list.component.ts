@@ -1,4 +1,10 @@
+import {
+  favorites,
+  FavoriteService,
+} from './../../../services/favorite.service';
+import { PokemonsService } from './../../../services/pokemons.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon';
 import { classe } from '../favoritos.component';
 
 @Component({
@@ -8,9 +14,35 @@ import { classe } from '../favoritos.component';
 })
 export class TierListComponent implements OnInit {
   @Input() classes: classe[] = [];
-  constructor() {}
+
+  constructor(
+    private _pokemonsService: PokemonsService,
+    private _favoriteService: FavoriteService
+  ) {}
+
+  favoritos: favorites | any = {
+    s: [],
+    a: [],
+    b: [],
+    c: [],
+    d: [],
+    e: [],
+    f: [],
+    none: [],
+  };
 
   ngOnInit(): void {
-    console.log(this.classes);
+    const favList: favorites = this._favoriteService.getFavoritos();
+    Object.values(favList).forEach((tier, index) => {
+      tier.forEach((fav: any) => {
+        this._pokemonsService
+          .getOnePokemon(`${fav}`)
+          .subscribe((res: Pokemon) =>
+            this.favoritos[Object.keys(this.favoritos)[index]].push(res)
+          );
+      });
+    });
+
+    console.log(this.favoritos);
   }
 }
