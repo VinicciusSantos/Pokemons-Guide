@@ -58,7 +58,7 @@
     display: flex;
     align-items: center;
 
-    > img {
+    img {
       width: 45px;
     }
 
@@ -78,7 +78,7 @@
       width: 30px;
       height: 30px;
 
-      > img {
+      img {
         width: 30px;
         height: 30px;
       }
@@ -110,7 +110,7 @@
     transition-duration: 0.2s;
     transform: scale(1.005);
 
-    > #cont-img > img {
+    #pokemon-img {
       transition-duration: 0.2s;
       transform: scale(1.1);
     }
