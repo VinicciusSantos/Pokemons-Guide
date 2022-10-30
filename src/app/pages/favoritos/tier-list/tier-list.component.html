@@ -1,12 +1,25 @@
 <div id="cont-component">
-  <table id="container-tier-list" data-testid="tier-list">
-    <tr *ngFor="let tier of classes" data-testid="tier">
-      <th [style.backgroundColor]="tier.color">{{ tier.name }}</th>
-    </tr>
-  </table>
+  <ul id="container-tier-list" data-testid="tier-list">
+    <ul id="tier" *ngFor="let tier of classes" data-testid="tier">
+      <li id="title-tier" [style.backgroundColor]="tier.color">
+        {{ tier.name }}
+      </li>
+      <ul>
+        <li id="card-pokemon-tier" *ngFor="let pokemon of favoritos[tier.name]">
+          <img
+            [src]="pokemon.sprites.front_default"
+            [alt]="pokemon.name"
+            height="70px" />
+        </li>
+      </ul>
+    </ul>
+  </ul>
 
-  <ul>
-    <li *ngFor="let fav of favoritos['none']" [title]="fav.name">
+  <ul id="favorite-list">
+    <li
+      *ngFor="let fav of favoritos['none']"
+      [title]="fav.name"
+      id="card-pokemon-tier">
       <img
         [src]="fav.sprites.front_default"
         [alt]="fav.name + 'pokemon'"
