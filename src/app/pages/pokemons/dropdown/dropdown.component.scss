@@ -8,7 +8,7 @@
     margin: 0 8px;
     border: none;
     border-radius: 5px;
-    background-color: var(--tertiary-1);
+    background-color: var(--tertiary-3);
     color: var(--font-color);
     display: flex;
     align-items: center;
@@ -31,6 +31,7 @@
 
     h5 {
       font-size: 17px;
+      color: var(--font-color);
       font-weight: 600;
       text-transform: uppercase;
       padding-bottom: 5px;

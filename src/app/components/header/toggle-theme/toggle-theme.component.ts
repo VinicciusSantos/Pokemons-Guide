@@ -4,7 +4,7 @@ import { ThemeService } from 'src/app/services/theme.service';
 @Component({
   selector: 'app-toggle-theme',
   templateUrl: './toggle-theme.component.html',
-  styleUrls: ['./toggle-theme.component.scss'],
+  styleUrls: [],
 })
 export class ToggleThemeComponent implements OnInit {
   isDarkMode!: boolean;

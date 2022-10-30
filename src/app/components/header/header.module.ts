@@ -11,6 +11,11 @@ import { LogoutButtonComponent } from './logout-button/logout-button.component';
 @NgModule({
   imports: [CommonModule, RouterModule, AppZorroModule, FormsModule],
   exports: [HeaderComponent],
-  declarations: [HeaderComponent, ToggleThemeComponent, SettingsComponent, LogoutButtonComponent],
+  declarations: [
+    HeaderComponent,
+    ToggleThemeComponent,
+    SettingsComponent,
+    LogoutButtonComponent,
+  ],
 })
 export class HeaderModule {}

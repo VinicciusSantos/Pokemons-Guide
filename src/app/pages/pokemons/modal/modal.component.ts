@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { Pokemon } from '../../../models/pokemon';
-import { PokemonsService } from './../../../services/pokemons.service';
-import { TitleService } from './../../../services/title.service';
+import { PokemonsService } from '../../../services/pokemons.service';
+import { TitleService } from '../../../services/title.service';
 
 @Component({
   selector: 'app-modal',

@@ -1,7 +1,7 @@
 #container {
   display: flex;
   align-items: center;
-  background-color: var(--tertiary-1);
+  background-color: var(--tertiary-3);
   padding: 5px 15px;
   border-radius: 5px;
   width: 100%;
@@ -25,8 +25,8 @@
     position: absolute;
     top: calc(100% + 8px);
     z-index: 2;
-    background-color: var(--tertiary-2);
-    transition-duration: .3s;
+    background-color: var(--tertiary-3);
+    transition-duration: 0.3s;
     margin: 0;
     padding: 5px;
     box-shadow: 4px 4px 4px var(--black-transparence-15);
@@ -41,7 +41,7 @@
       text-transform: capitalize;
 
       &:hover {
-        transition-duration: .3s;
+        transition-duration: 0.3s;
         background-color: var(--tertiary-1);
       }
     }
