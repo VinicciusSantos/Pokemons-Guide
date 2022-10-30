@@ -6,6 +6,7 @@ import { PokemonsService } from './../../../services/pokemons.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { classe } from '../favoritos.component';
+import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-tier-list',
@@ -31,6 +32,23 @@ export class TierListComponent implements OnInit {
     none: [],
   };
 
+  drop(event: CdkDragDrop<any[]>) {
+    const previousIndex = event.previousContainer.data.findIndex(
+      item => item === event.item.data
+    );
+    transferArrayItem(
+      event.previousContainer.data,
+      event.container.data,
+      previousIndex,
+      event.currentIndex
+    );
+    let newFavList: any = {};
+    Object.entries(this.favoritos).forEach(
+      (item: any[]) => (newFavList[item[0]] = item[1].map((i: any) => i.id))
+    );
+    this._favoriteService.saveAllChanges(newFavList);
+  }
+
   ngOnInit(): void {
     const favList: favorites = this._favoriteService.getFavoritos();
     Object.values(favList).forEach((tier, index) => {
@@ -42,7 +60,5 @@ export class TierListComponent implements OnInit {
           );
       });
     });
-
-    console.log(this.favoritos);
   }
 }

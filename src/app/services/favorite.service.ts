@@ -61,6 +61,11 @@ export class FavoriteService {
     this.isfavorited(id) ? this.removeFavorite(id) : this.addFavorite(id);
   }
 
+  saveAllChanges(lista: favorites) {
+    this.removeAllFaforites();
+    localStorage.setItem('favoritos', JSON.stringify(lista));
+  }
+
   getFavoritos(): favorites {
     let favoritos: any = localStorage.getItem('favoritos');
     if (!favoritos) {

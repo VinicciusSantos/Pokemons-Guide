@@ -1,11 +1,21 @@
-<div id="cont-component">
+<div id="cont-component" cdkDropListGroup>
   <ul id="container-tier-list" data-testid="tier-list">
-    <ul id="tier" *ngFor="let tier of classes" data-testid="tier">
+    <ul id="tier" data-testid="tier" *ngFor="let tier of classes">
       <li id="title-tier" [style.backgroundColor]="tier.color">
         {{ tier.name }}
       </li>
-      <ul>
-        <li id="card-pokemon-tier" *ngFor="let pokemon of favoritos[tier.name]">
+      <ul
+        id="pokemons-in-tier"
+        cdkDropList
+        [cdkDropListConnectedTo]="['favorite-list']"
+        (cdkDropListDropped)="drop($event)"
+        [cdkDropListData]="favoritos[tier.name]">
+        <li
+          id="card-pokemon-tier"
+          *ngFor="let pokemon of favoritos[tier.name]"
+          cdkDrag
+          [cdkDragData]="pokemon"
+          [title]="pokemon.name">
           <img
             [src]="pokemon.sprites.front_default"
             [alt]="pokemon.name"
@@ -15,15 +25,22 @@
     </ul>
   </ul>
 
-  <ul id="favorite-list">
+  <ul
+    id="favorite-list"
+    cdkDropList
+    [cdkDropListData]="favoritos['none']"
+    [cdkDropListConnectedTo]="['pokemons-in-tier']"
+    (cdkDropListDropped)="drop($event)">
     <li
+      id="card-pokemon-tier"
       *ngFor="let fav of favoritos['none']"
-      [title]="fav.name"
-      id="card-pokemon-tier">
+      cdkDrag
+      [cdkDragData]="fav"
+      [title]="fav.name">
       <img
         [src]="fav.sprites.front_default"
         [alt]="fav.name + 'pokemon'"
-        width="90%" />
+        height="70px" />
     </li>
   </ul>
 </div>
