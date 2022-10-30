@@ -26,4 +26,11 @@ describe('HeaderComponent', () => {
     const modal = screen.queryByTestId('settings-dropdown');
     expect(modal).toBeFalsy();
   });
+
+  it('should open modal on click', async () => {
+    const button = screen.getByTestId('settings-button');
+    fireEvent.click(button);
+    const modal = screen.queryByTestId('settings-dropdown');
+    expect(modal).toBeTruthy();
+  });
 });

@@ -47,8 +47,8 @@ export class ModalComponent implements OnInit, OnDestroy {
         .getOnePokemon(this.PokemonName)
         .subscribe((res: Pokemon) => {
           this.pokemon = res;
-          this._titleService.changeTitle(res.name);
-          this._titleService.changeFaviconUrl(res.sprites.front_default);
+          this._titleService.changeTitle(res?.name);
+          this._titleService.changeFaviconUrl(res?.sprites.front_default);
         })
     );
   }

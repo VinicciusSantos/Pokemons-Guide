@@ -26,21 +26,21 @@ describe('ModalComponent', () => {
     expect(modal).toBeTruthy();
   });
 
-  // it('should close on clickaway', async () => {
-  //   const back = screen.getByTestId('back');
-  //   fireEvent.click(back);
-  //   await sleep(500);
-  //   expect(screen.queryByTestId('modal')).toBeNull();
-  // });
+  it('should close on clickaway', async () => {
+    const modal = await screen.findByTestId('modal');
+    console.log(modal);
+    const back = screen.getByTestId('back');
+    fireEvent.click(back);
+    setTimeout(() => {
+      expect(screen.queryByTestId('modal')).toBeNull();
+    }, 500);
+  });
 
-  // it('should close on click close button', async () => {
-  //   const closeButton = screen.getByTestId('close-button');
-  //   fireEvent.click(closeButton);
-  //   await sleep(500);
-  //   expect(screen.queryByTestId('modal')).toBeNull();
-  // });
+  it('should close on click close button', async () => {
+    const closeButton = screen.getByTestId('close-button');
+    fireEvent.click(closeButton);
+    setTimeout(() => {
+      expect(screen.queryByTestId('modal')).toBeNull();
+    }, 500);
+  });
 });
-
-const sleep = (ms: number) => {
-  return new Promise(resolve => setTimeout(resolve, ms));
-};
