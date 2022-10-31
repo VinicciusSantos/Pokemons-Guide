@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: any) {
-    console.log(form.form.value);
     let isLogged = this.authService.fazLogin(form.form.value);
     if (isLogged) {
       this.router.navigate(['/']);
