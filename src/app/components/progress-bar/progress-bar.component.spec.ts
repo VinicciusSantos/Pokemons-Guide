@@ -33,7 +33,7 @@ describe('ProgressBarComponent', () => {
   });
 
   it('should show filled points', async () => {
-    const points = screen.getByText(defaultTest.preenchido);
-    expect(points).toBe(`${defaultTest.preenchido} pts`);
+    const points = screen.getByText(`${defaultTest.preenchido} pts`);
+    expect(points).toBeTruthy();
   });
 });
