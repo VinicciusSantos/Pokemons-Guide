@@ -1,0 +1,20 @@
+<div id="settings" data-testid="settings-container">
+  <span
+    nz-icon
+    [nzType]="'setting'"
+    data-testid="settings-button"
+    role="button"
+    (click)="changeModal()"
+    [nzTheme]="'fill'"></span>
+
+  <div
+    class="settings-dropdown"
+    data-testid="settings-dropdown"
+    *ngIf="isModalOpen">
+    <app-toggle-theme></app-toggle-theme>
+    <app-logout-button></app-logout-button>
+    <a href="https://github.com/VinicciusSantos/Brisalabs-PokeAPI">
+      <span nz-icon nzType="github" nzTheme="outline"></span>
+    </a>
+  </div>
+</div>

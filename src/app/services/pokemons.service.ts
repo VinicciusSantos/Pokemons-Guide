@@ -19,7 +19,7 @@ export class PokemonsService {
     }),
   };
 
-  getOnePokemon(name: string): Observable<Pokemon> {
+  getOnePokemon(name: string | number): Observable<Pokemon> {
     return this.httpClient.get<Pokemon>(`${this.url}/pokemon/${name}`);
   }
 

@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 import { Pokemon } from '../../../models/pokemon';
-import { PokemonsService } from './../../../services/pokemons.service';
-import { TitleService } from './../../../services/title.service';
+import { PokemonsService } from '../../../services/pokemons.service';
+import { TitleService } from '../../../services/title.service';
 
 @Component({
   selector: 'app-modal',
@@ -47,8 +47,8 @@ export class ModalComponent implements OnInit, OnDestroy {
         .getOnePokemon(this.PokemonName)
         .subscribe((res: Pokemon) => {
           this.pokemon = res;
-          this._titleService.changeTitle(res.name);
-          this._titleService.changeFaviconUrl(res.sprites.front_default);
+          this._titleService.changeTitle(res?.name);
+          this._titleService.changeFaviconUrl(res?.sprites.front_default);
         })
     );
   }

@@ -45,6 +45,14 @@ describe('DropdownComponent', () => {
     expect(content).toHaveClass('open-dropdown');
   });
 
+  it('should close on click', async () => {
+    const button = screen.getByText(defaultTest.title);
+    fireEvent.click(button);
+    fireEvent.click(button);
+    const content = screen.getByTestId('content');
+    expect(content).toHaveClass('closed-dropdown');
+  });
+
   // it('should close on clickaway', async () => {
   //   const button = screen.getByText(defaultTest.title);
   //   fireEvent.click(button);

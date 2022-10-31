@@ -1,5 +1,8 @@
 <app-header></app-header>
-<p>favoritos works!</p>
-<ul>
+<!-- <ul>
   <li *ngFor="let fav of favoritos">{{ fav }}</li>
-</ul>
+</ul> -->
+<div id="container">
+  <h1>Make your Tier List</h1>
+  <app-tier-list [classes]="tiers"></app-tier-list>
+</div>

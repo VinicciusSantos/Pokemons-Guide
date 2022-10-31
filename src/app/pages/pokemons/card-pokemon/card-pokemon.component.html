@@ -2,6 +2,7 @@
   <h2 [routerLink]="[pokemon.name]">{{ pokemon.name }}</h2>
   <div id="cont-img">
     <img
+      id="pokemon-img"
       [src]="pokemon.sprites.front_default"
       [alt]="pokemon.name"
       [routerLink]="[pokemon.name]" />
@@ -30,8 +31,8 @@
   </div>
 
   <div
-    [routerLink]="[pokemon.name]"
     id="background"
+    [routerLink]="[pokemon.name]"
     [ngStyle]="{
       'background-image': 'url(' + pokemon.sprites.front_default + ')'
     }"></div>

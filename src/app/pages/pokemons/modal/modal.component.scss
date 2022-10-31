@@ -104,10 +104,11 @@
         button {
           color: var(--black-transparence-75);
           font-size: 15px;
+          display: flex;
           border: none;
           background-color: transparent;
           transition-duration: 0.5s;
-          margin-top: 3px;
+          margin-top: 10px;
 
           &:hover {
             transition-duration: 0.5s;
@@ -179,6 +180,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -188,9 +190,11 @@
   0% {
     transform: translateY(100vh) rotate(360deg);
   }
+
   70% {
     transform: translateY(0) rotate(-360deg);
   }
+
   100% {
     transform: scale(0.01);
   }

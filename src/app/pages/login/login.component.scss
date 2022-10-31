@@ -3,104 +3,101 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(
-    115deg,
-    var(--primary-1) 0,
-    var(--primary-2) 100%
-  );
-}
+  background-image:
+    linear-gradient(
+      115deg,
+      var(--primary-1) 0,
+      var(--primary-2) 100%
+    );
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-
-  main {
-    width: 50vw;
-    height: 70%;
-    box-shadow: 3px 3px 3px var(--black-transparence-15);
-    background-color: var(--tertiary-1) !important;
-    border-radius: 5px;
+  .container {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
 
-    #left-banner {
-      width: 25vw;
-      height: 100%;
-      background-image: url('../../../assets/background_login.jpg');
-      background-size: cover;
-      background-position: center;
-      border-radius: 5px 0 0 5px;
-    }
-
-    #cont-form {
+    main {
+      width: 50vw;
+      height: 70%;
+      box-shadow: 3px 3px 3px var(--black-transparence-15);
+      background-color: var(--tertiary-1) !important;
+      border-radius: 5px;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1vh 1vw;
-      width: 25vw;
 
-      img {
-        margin-top: 20px;
+      #left-banner {
+        width: 25vw;
+        height: 100%;
+        background-image: url("../../../assets/background_login.jpg");
+        background-size: cover;
+        background-position: center;
+        border-radius: 5px 0 0 5px;
       }
 
-      form {
-        width: 100%;
+      #cont-form {
         display: flex;
         flex-direction: column;
-        margin-top: 40px;
+        align-items: center;
+        padding: 1vh 1vw;
+        width: 25vw;
 
-        input {
-          padding: 5px;
-          border: 2px solid rgba(51, 51, 51, 0.74);
-          border-radius: 5px;
-          font-size: 22px;
+        img {
+          margin-top: 20px;
         }
 
-        input + input {
-          margin: 10px 0;
-        }
-
-        .error-input {
-          height: 25px;
+        form {
+          width: 100%;
           display: flex;
-          font-size: 12px;
+          flex-direction: column;
+          margin-top: 40px;
 
-          span {
-            margin-right: 5px;
-          }
-        }
-
-        .ng-invalid.ng-touched:not(form) {
-          border: 2px solid rgba(255, 23, 23, 0.678);
-
-          :-ms-input-placeholder {
-            color: rgba(255, 23, 23, 0.678);
-            opacity: 1;
+          input {
+            padding: 5px;
+            border: 2px solid rgb(51 51 51 / 74%);
+            border-radius: 5px;
+            font-size: 22px;
           }
 
-          &::placeholder {
-            color: rgba(255, 23, 23, 0.678);
-            opacity: 1; /* Firefox */
+          input + input {
+            margin: 10px 0;
           }
 
-          & + .error-input * {
-            color: rgba(255, 23, 23, 0.678);
-          }
-        }
-
-        button {
-          transition-duration: 0.3s;
-          margin-top: 5px;
-          span {
-            margin-right: 5px;
-          }
-
-          &:hover {
-            background-color: var(--secondary-2);
+          button {
             transition-duration: 0.3s;
+            margin-top: 5px;
+
+            span {
+              margin-right: 5px;
+            }
+
+            &:hover {
+              background-color: var(--secondary-2);
+              transition-duration: 0.3s;
+            }
+          }
+
+          .error-input {
+            height: 25px;
+            display: flex;
+            font-size: 12px;
+
+            span {
+              margin-right: 5px;
+            }
+          }
+
+          .ng-invalid.ng-touched:not(form) {
+            border: 2px solid rgb(255 23 23 / 67.8%);
+
+            &::placeholder {
+              color: rgb(255 23 23 / 67.8%);
+              opacity: 1; /* Firefox */
+            }
+
+            & + .error-input * {
+              color: rgb(255 23 23 / 67.8%);
+            }
           }
         }
       }

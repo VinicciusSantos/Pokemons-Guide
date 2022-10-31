@@ -1,7 +1,6 @@
-@import url("./buttons.scss");
-@import url("./fonts/index.scss");
-@import url("./colors/index.scss");
-@import "bootstrap/scss/bootstrap";
+@import "./buttons";
+@import "./fonts/index";
+@import "./colors/index";
 
 * {
   margin: 0;

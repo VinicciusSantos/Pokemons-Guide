@@ -8,9 +8,8 @@ describe('RotaNaoEncontradaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RotaNaoEncontradaComponent ]
-    })
-    .compileComponents();
+      declarations: [RotaNaoEncontradaComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(RotaNaoEncontradaComponent);
     component = fixture.componentInstance;

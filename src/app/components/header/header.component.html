@@ -17,19 +17,5 @@
     </nav>
   </section>
 
-  <section id="right-section">
-    <app-toggle-theme></app-toggle-theme>
-
-    <button
-      (click)="logOut()"
-      class="btn-logout"
-      data-testid="logout-button"
-      title="Logout">
-      <span nz-icon nzType="logout" nzTheme="outline"></span>
-    </button>
-
-    <a href="https://github.com/VinicciusSantos/Brisalabs-PokeAPI">
-      <span nz-icon nzType="github" nzTheme="outline"></span>
-    </a>
-  </section>
+  <app-settings></app-settings>
 </header>

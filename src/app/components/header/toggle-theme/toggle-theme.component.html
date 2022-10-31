@@ -1,0 +1,6 @@
+<nz-switch
+  [ngClass]="{ 'toggle-checked': isDarkMode }"
+  (click)="toggleDarkMode()"
+  role="button"
+  [(ngModel)]="isDarkMode"
+  data-testid="toggle-theme"></nz-switch>

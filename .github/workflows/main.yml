@@ -1,0 +1,34 @@
+name: Automated Tests and Linting
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  test-prettier-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js 18.12.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.12.0
+
+      - name: Install packages
+        run: yarn
+
+      - name: Run Tests
+        run: yarn test
+
+      - name: Run Lint
+        run: yarn lint
+
+      - name: Run Build
+        run: yarn build
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

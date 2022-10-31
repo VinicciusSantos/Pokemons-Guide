@@ -1,4 +1,17 @@
 :host {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: var(--tertiary-3);
+  height: auto;
+  overflow-y: hidden;
+
+  #container {
+    margin-top: 30px;
+
+    h1 {
+      color: var(--font-color);
+      font-weight: bold;
+    }
+  }
 }

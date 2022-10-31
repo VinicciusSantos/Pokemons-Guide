@@ -19,14 +19,7 @@ export class PokemonsComponent implements OnInit, OnDestroy {
     private pokemonsService: PokemonsService,
     private _titleService: TitleService,
     private route: ActivatedRoute
-  ) {
-    this.observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting && (this.type === '' || !this.type))
-          this.loadMore();
-      });
-    });
-  }
+  ) {}
 
   offset: number = 0;
   limit: number = 30;
@@ -36,7 +29,7 @@ export class PokemonsComponent implements OnInit, OnDestroy {
   pokemons: Pokemon[] = [];
   search: string = '';
 
-  observer: IntersectionObserver;
+  observer: IntersectionObserver | null = null;
 
   type: string = '';
   subscription!: Subscription;
@@ -108,6 +101,13 @@ export class PokemonsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && (this.type === '' || !this.type))
+          this.loadMore();
+      });
+    });
+
     // Alterando o titulo do navegador
     this._titleService.changeTitle('Pokemons', 'pokeball.png');
 
