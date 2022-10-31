@@ -1,4 +1,4 @@
-<div id="cont-component" cdkDropListGroup>
+<div id="cont-component" data-testid="cont-component" cdkDropListGroup>
   <ul id="container-tier-list" data-testid="tier-list">
     <ul id="tier" data-testid="tier" *ngFor="let tier of classes">
       <li id="title-tier" [style.backgroundColor]="tier.color">
@@ -27,12 +27,14 @@
 
   <ul
     id="favorite-list"
+    data-testid="favorite-list"
     cdkDropList
     [cdkDropListData]="favoritos['none']"
     [cdkDropListConnectedTo]="['pokemons-in-tier']"
     (cdkDropListDropped)="drop($event)">
     <li
       id="card-pokemon-tier"
+      data-testid="pokemon-no-tier"
       *ngFor="let fav of favoritos['none']"
       cdkDrag
       [cdkDragData]="fav"

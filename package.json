@@ -90,7 +90,6 @@
       "html",
       "lcov"
     ],
-    "verbose": true,
     "silent": true
   }
 }

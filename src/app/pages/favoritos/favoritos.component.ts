@@ -7,7 +7,7 @@ export interface classe {
   color: string;
 }
 
-const tier_classes: classe[] = [
+export const tier_classes: classe[] = [
   { name: 's', color: '#FF7F7F' },
   { name: 'a', color: '#FFBF7F' },
   { name: 'b', color: '#FFFF7F' },

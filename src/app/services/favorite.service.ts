@@ -12,6 +12,17 @@ export interface favorites {
   none: number[];
 }
 
+export const emptyList = {
+  s: [],
+  a: [],
+  b: [],
+  c: [],
+  d: [],
+  e: [],
+  f: [],
+  none: [],
+};
+
 @Injectable({
   providedIn: 'root',
 })
@@ -30,8 +41,7 @@ export class FavoriteService {
 
   removeFavorite(id: number) {
     let favoritos: favorites | any = this.getFavoritos();
-    let tierDoId = this.findTier(id);
-    favoritos[tierDoId] = favoritos[tierDoId].filter(
+    favoritos[this.findTier(id)] = favoritos[this.findTier(id)]?.filter(
       (pok: number) => pok != id
     );
     localStorage.setItem('favoritos', JSON.stringify(favoritos));
@@ -69,16 +79,6 @@ export class FavoriteService {
   getFavoritos(): favorites {
     let favoritos: any = localStorage.getItem('favoritos');
     if (!favoritos) {
-      const emptyList = {
-        s: [],
-        a: [],
-        b: [],
-        c: [],
-        d: [],
-        e: [],
-        f: [],
-        none: [],
-      };
       localStorage.setItem('favoritos', JSON.stringify(emptyList));
       return emptyList;
     }
