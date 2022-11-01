@@ -62,7 +62,7 @@
       position: relative;
       box-shadow: 2px 0 2px #00000021;
 
-      img {
+      > img {
         transform: rotateY(180deg);
       }
 
@@ -71,6 +71,10 @@
         bottom: 15px;
         right: 15px;
         display: flex;
+
+        img + img {
+          margin-left: 4px;
+        }
       }
 
       #background {
@@ -86,6 +90,17 @@
         left: 0;
         width: 100%;
         height: 100%;
+
+        &::after {
+          content: '';
+          opacity: 0.6;
+          background-image: url('../../../../assets/diagmonds.png');
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
     }
 
@@ -100,6 +115,11 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+
+        h2 {
+          font-size: 35px;
+          margin: 0;
+        }
 
         button {
           color: var(--black-transparence-75);

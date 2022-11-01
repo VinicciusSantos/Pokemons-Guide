@@ -62,6 +62,10 @@
       width: 45px;
     }
 
+    img + img {
+      margin-left: 5px;
+    }
+
     #fav-icon {
       display: flex;
       justify-content: center;

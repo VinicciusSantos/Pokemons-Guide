@@ -1,4 +1,8 @@
-<li data-testid="container-pokemon" id="container-pokemon" *ngIf="pokemon">
+<li
+  data-testid="container-pokemon"
+  id="container-pokemon"
+  *ngIf="pokemon"
+  role="button">
   <h2 [routerLink]="[pokemon.name]">{{ pokemon.name }}</h2>
   <div id="cont-img">
     <img
