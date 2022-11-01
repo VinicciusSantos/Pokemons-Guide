@@ -144,6 +144,13 @@
       background-color: var(--black-transparence-15);
       opacity: 0.5;
       height: 1px;
+      margin-bottom: 15px;
+    }
+
+    #main-infos {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
     }
   }
 

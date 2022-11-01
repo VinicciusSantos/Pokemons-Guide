@@ -1,0 +1,11 @@
+<div class="badge-component" data-testid="badge-component">
+  <span id="key"
+    >{{ key }}
+    <span
+      *ngIf="background"
+      id="background"
+      data-testid="background"
+      [style.backgroundImage]="'url(' + background + ')'"></span>
+  </span>
+  <span id="value">{{ value }}</span>
+</div>

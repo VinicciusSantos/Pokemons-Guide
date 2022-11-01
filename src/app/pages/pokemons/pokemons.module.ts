@@ -1,3 +1,4 @@
+import { BadgeComponent } from './../../components/badge/badge.component';
 import { ProgressBarComponent } from './../../components/progress-bar/progress-bar.component';
 import { AppZorroModule } from '../../styles/app-zorro.module';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +32,7 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     DropdownComponent,
     SearchbarComponent,
     ProgressBarComponent,
+    BadgeComponent,
   ],
 })
 export class PokemonsModule {}

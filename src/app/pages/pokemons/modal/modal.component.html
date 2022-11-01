@@ -36,14 +36,24 @@
       <span id="divider"></span>
 
       <ul>
-        <li>Height: {{ pokemon.height }}</li>
-        <li>Weight: {{ pokemon.weight }}</li>
-        <li>
-          Abilities:
-          <ul>
-            <li *ngFor="let ab of pokemon.abilities">{{ ab.ability.name }}</li>
-          </ul>
-        </li>
+        <div id="main-infos">
+          <app-badge
+            key="Height"
+            [value]="pokemon.height"
+            [background]="pokemon.sprites.front_default"></app-badge>
+          <app-badge
+            key="Weight"
+            [value]="pokemon.weight"
+            [background]="pokemon.sprites.front_default"></app-badge>
+          <li>
+            Abilities:
+            <ul>
+              <li *ngFor="let ab of pokemon.abilities">
+                {{ ab.ability.name }}
+              </li>
+            </ul>
+          </li>
+        </div>
         <li id="status-list">
           <span>Stats:</span>
           <ul>
