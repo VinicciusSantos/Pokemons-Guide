@@ -11,6 +11,7 @@
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e324577161334c39aaa6edbdf8a945b4)](https://www.codacy.com/gh/VinicciusSantos/Pokemons-Guide/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=VinicciusSantos/Pokemons-Guide&amp;utm_campaign=Badge_Grade)
 [![Coverage Status](https://coveralls.io/repos/github/VinicciusSantos/Pokemons-Guide/badge.svg?branch=main)](https://coveralls.io/github/VinicciusSantos/Pokemons-Guide?branch=main)
+[![Automated Tests](https://github.com/VinicciusSantos/Pokemons-Guide/actions/workflows/main.yml/badge.svg)](https://github.com/VinicciusSantos/Pokemons-Guide/actions/workflows/main.yml)
 
 ## Run Project
 
