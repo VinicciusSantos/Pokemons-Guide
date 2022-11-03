@@ -92,9 +92,9 @@
         height: 100%;
 
         &::after {
-          content: '';
+          content: "";
           opacity: 0.6;
-          background-image: url('../../../../assets/diagmonds.png');
+          background-image: url("../../../../assets/diagmonds.png");
           width: 100%;
           height: 100%;
           position: absolute;
@@ -165,7 +165,6 @@
       padding: 15px;
       padding-top: 5px;
       border-radius: 5px;
-
 
       li + li {
         margin-top: 10px;

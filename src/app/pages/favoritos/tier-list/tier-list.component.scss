@@ -21,16 +21,15 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 70px;
-        min-height: 70px;
+        width: 80px;
+        min-height: 80px;
         border-radius: 5px;
         margin-right: 5px;
       }
 
       ul#pokemons-in-tier {
-        display: flex;
-        align-items: center;
         width: 100%;
+        display: flex;
       }
     }
   }
@@ -44,18 +43,5 @@
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
-  }
-
-  li#card-pokemon-tier img {
-    width: 65px;
-    height: 65px;
-    border-radius: 10px;
-    background-color: var(--tertiary-3);
-    margin: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 3px solid var(--tertiary-4);
-    cursor: grab;
   }
 }

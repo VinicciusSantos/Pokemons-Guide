@@ -6,7 +6,11 @@ import { PokemonsService } from './../../../services/pokemons.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { classe } from '../favoritos.component';
-import { CdkDragDrop, transferArrayItem } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-tier-list',
@@ -36,12 +40,16 @@ export class TierListComponent implements OnInit {
     const previousIndex = event.previousContainer.data.findIndex(
       item => item === event.item.data
     );
-    transferArrayItem(
-      event.previousContainer.data,
-      event.container.data,
-      previousIndex,
-      event.currentIndex
-    );
+
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, previousIndex, event.currentIndex);
+    } else
+      transferArrayItem(
+        event.previousContainer.data,
+        event.container.data,
+        previousIndex,
+        event.currentIndex
+      );
     let newFavList: any = {};
     Object.entries(this.favoritos).forEach(
       (item: any[]) => (newFavList[item[0]] = item[1].map((i: any) => i.id))
