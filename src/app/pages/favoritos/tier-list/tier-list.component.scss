@@ -13,6 +13,7 @@
 
     ul#tier {
       display: flex;
+      height: auto;
       background-color: var(--tertiary-2);
       border: 3px solid var(--tertiary-1);
       border-radius: 5px;
@@ -27,16 +28,16 @@
         margin-right: 5px;
       }
 
-      ul#pokemons-in-tier {
+      div#pokemons-in-tier {
         width: 100%;
-        display: flex;
+        flex: 1;
       }
     }
   }
 
-  ul#favorite-list {
+  div#favorite-list {
     width: 100%;
-    margin-top: 10px;
+    margin: 10px 0;
     padding: 10px;
     color: var(--font-color);
     background-color: var(--tertiary-2);

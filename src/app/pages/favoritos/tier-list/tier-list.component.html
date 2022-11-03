@@ -4,7 +4,7 @@
       <li id="title-tier" [style.backgroundColor]="tier.color">
         {{ tier.name }}
       </li>
-      <ul
+      <div
         id="pokemons-in-tier"
         cdkDropList
         cdkDropListOrientation="horizontal"
@@ -14,17 +14,12 @@
         <app-tier-card
           *ngFor="let pokemon of favoritos[tier.name]"
           [pokemon]="pokemon">
-          <app-tier-card
-            class="example-custom-placeholder"
-            *cdkDragPlaceholder
-            [pokemon]="pokemon">
-          </app-tier-card>
         </app-tier-card>
-      </ul>
+      </div>
     </ul>
   </ul>
 
-  <ul
+  <div
     id="favorite-list"
     data-testid="favorite-list"
     cdkDropList
@@ -35,5 +30,5 @@
     <app-tier-card
       *ngFor="let pokemon of favoritos['none']"
       [pokemon]="pokemon"></app-tier-card>
-  </ul>
+  </div>
 </div>

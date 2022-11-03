@@ -4,10 +4,8 @@
   height: 65px;
   border-radius: 10px;
   background-color: var(--tertiary-3);
-  margin: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 7px 5px 0;
+  display: inline-block;
   border: 3px solid var(--tertiary-4);
   cursor: move;
   background-position: center;
@@ -16,3 +14,12 @@
   flex-grow: 1;
   flex-basis: 0;
 }
+
+.cdk-drag-placeholder
+{
+  opacity: 0.6 !important;
+  border-style: dashed;
+  background-color: var(--black-transparence-5);
+  border-color: var(--black-transparence-15);
+}
+
