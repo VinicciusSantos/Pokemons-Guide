@@ -1,5 +1,4 @@
-import { BadgeComponent } from './../../components/badge/badge.component';
-import { ProgressBarComponent } from './../../components/progress-bar/progress-bar.component';
+import { ComponentsModule } from './../../components/components.module';
 import { AppZorroModule } from '../../styles/app-zorro.module';
 import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './pokemons.routing';
@@ -18,12 +17,12 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
 @NgModule({
   imports: [
     CommonModule,
-    HeaderModule,
     NgbModule,
     RouterModule,
     HomeRoutingModule,
     FormsModule,
     AppZorroModule,
+    ComponentsModule,
   ],
   declarations: [
     PokemonsComponent,
@@ -31,8 +30,6 @@ import { SearchbarComponent } from './searchbar/searchbar.component';
     ModalComponent,
     DropdownComponent,
     SearchbarComponent,
-    ProgressBarComponent,
-    BadgeComponent,
   ],
 })
 export class PokemonsModule {}

@@ -34,7 +34,9 @@
             ],
             "styles": [
               "src/theme.less",
-              "src/app/styles/index.scss"
+              "src/app/styles/index.scss",
+              "node_modules/ngx-sharebuttons/themes/circles.scss",
+              "node_modules/ngx-sharebuttons/themes/modern.scss"
             ],
             "scripts": []
           },
@@ -92,10 +94,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -103,8 +102,6 @@
   },
   "cli": {
     "analytics": "309ad61a-8d1b-491c-88ba-8245d947e0b4",
-    "schematicCollections": [
-      "@angular-eslint/schematics"
-    ]
+    "schematicCollections": ["@angular-eslint/schematics"]
   }
 }
