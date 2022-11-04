@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
@@ -19,7 +20,8 @@ export class ModalComponent implements OnInit, OnDestroy {
     private _pokService: PokemonsService,
     private _titleService: TitleService,
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _location: Location
   ) {}
 
   PokemonName: string = '';
@@ -32,7 +34,7 @@ export class ModalComponent implements OnInit, OnDestroy {
       this.isOpen = !this.isOpen;
       this.isClosing = false;
       this._titleService.changeTitle('Pokemons', 'pokeball.png');
-      this._router.navigate(['/pokemons']);
+      this._location.back();
     }, 500);
   }
 
