@@ -1,0 +1,12 @@
+#toggle-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  span {
+    color: var(--black);
+    font-weight: bold;
+    font-size: 15px;
+  }
+}

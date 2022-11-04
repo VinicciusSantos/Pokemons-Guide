@@ -7,14 +7,27 @@
     (click)="changeModal()"
     [nzTheme]="'fill'"></span>
 
-  <div
+  <ul
     class="settings-dropdown"
     data-testid="settings-dropdown"
     *ngIf="isModalOpen">
-    <app-toggle-theme></app-toggle-theme>
-    <app-logout-button></app-logout-button>
-    <a href="https://github.com/VinicciusSantos/Brisalabs-PokeAPI">
-      <span nz-icon nzType="github" nzTheme="outline"></span>
-    </a>
-  </div>
+    <li>
+      <span>Dark Mode:</span>
+      <app-toggle-theme pp-toggle-theme></app-toggle-theme>
+    </li>
+    <li>
+      <span>Logout:</span>
+      <app-logout-button></app-logout-button>
+    </li>
+    <li>
+      <span>Código Fonte:</span>
+      <a href="https://github.com/VinicciusSantos/Brisalabs-PokeAPI">
+        <span
+          class="github-link"
+          nz-icon
+          nzType="github"
+          nzTheme="outline"></span>
+      </a>
+    </li>
+  </ul>
 </div>

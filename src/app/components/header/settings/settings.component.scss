@@ -13,6 +13,7 @@
 
   .settings-dropdown {
     z-index: 2;
+    width: 200px;
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -20,11 +21,38 @@
     right: 0;
     background-color: white;
     border-radius: 5px;
-    padding: 10px;
+
+    li {
+      padding: 5px 15px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      transition-duration: 0.2s;
+
+      span {
+        color: var(--black-transparence-75);
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      .github-link {
+        font-size: 24px;
+      }
+
+      &:hover {
+        background-color: var(--black-transparence-5);
+        transition-duration: 0.2s;
+      }
+    }
   }
 }
 
 @keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(180deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
 }
