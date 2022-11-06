@@ -95,6 +95,7 @@
       "html",
       "lcov"
     ],
-    "silent": true
+    "silent": true,
+    "testTimeout": 20000
   }
 }
