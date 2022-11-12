@@ -26,12 +26,11 @@
     padding: 8px;
     border-radius: 5px;
     box-shadow: 0 0 3px var(--black-transparence-30);
-    background-color: var(--tertiary-2);
-    color: var(--font-color);
+    background-color: var(--white);
+    color: var(--black);
 
     h5 {
       font-size: 17px;
-      color: var(--font-color);
       font-weight: 600;
       text-transform: uppercase;
       padding-bottom: 5px;
@@ -59,7 +58,7 @@
 
         &:hover {
           transition-duration: 0.2s;
-          background-color: var(--tertiary-1);
+          background-color: var(--black-transparence-15);
         }
       }
     }

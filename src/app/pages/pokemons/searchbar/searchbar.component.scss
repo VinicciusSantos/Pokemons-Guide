@@ -25,7 +25,7 @@
     position: absolute;
     top: calc(100% + 8px);
     z-index: 2;
-    background-color: var(--tertiary-2);
+    background-color: var(--white);
     transition-duration: 0.3s;
     margin: 0;
     padding: 5px;
@@ -39,6 +39,7 @@
       cursor: pointer;
       border-radius: 4px;
       text-transform: capitalize;
+      color: var(--black);
 
       &:hover {
         transition-duration: 0.3s;

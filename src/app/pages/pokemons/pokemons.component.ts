@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Pok, PokemonsByTypes } from 'src/app/models/pokemonsByTypes';
 import { Result } from 'src/app/models/root';
 import { types } from 'src/app/models/types';
@@ -32,7 +32,7 @@ export class PokemonsComponent implements OnInit, OnDestroy {
   observer: IntersectionObserver | null = null;
 
   type: string = '';
-  subscription!: Subscription;
+  previusType: string = '';
   subs: Subscription[] = [];
 
   // Função Responsável por chamar o service para receber os dados da API quando a tela é scrollada até o fim
@@ -61,17 +61,18 @@ export class PokemonsComponent implements OnInit, OnDestroy {
 
   // Função que vai fazer o filtro dos pokemons
   async filterByType() {
-    const oldType = this.type;
-    // delay para o observador conseguir identificar o query param
-    await new Promise(resolve => setTimeout(resolve, 50));
-
     if (this.type === '' || !this.type) {
       this.loadPokemons(this.offset, this.limit);
       return;
     }
 
-    if (oldType === this.type && this.pokemons.length > 0) return;
+    if (
+      (this.previusType === this.type || this.previusType === '') &&
+      this.pokemons.length > 0
+    )
+      return;
 
+    this.previusType = this.type;
     this.initialPokemons = [];
     this.pokemons = [];
 
@@ -116,11 +117,12 @@ export class PokemonsComponent implements OnInit, OnDestroy {
     if (button) this.observer.observe(button);
 
     // Buscando o query do tipo de pokemon na url
-    this.subscription = this.route.queryParams.subscribe((queryParams: any) => {
-      this.type = queryParams['type'];
-    });
-
-    this.filterByType();
+    this.subs.push(
+      this.route.queryParams.subscribe((queryParams: any) => {
+        this.type = queryParams['type'];
+        this.filterByType();
+      })
+    );
   }
 
   ngOnDestroy(): void {

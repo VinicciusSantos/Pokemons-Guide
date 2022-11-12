@@ -20,6 +20,8 @@
         <img
           *ngFor="let tipo of pokemon.types"
           height="30px"
+          [routerLink]="['../']"
+          [queryParams]="{ type: tipo.type.name }"
           [title]="'type ' + tipo.type.name"
           [src]="'../../../../assets/types/' + tipo.type.name + '.png'"
           [alt]="tipo.type.name" />
@@ -45,15 +47,11 @@
             key="Weight"
             [value]="pokemon.weight"
             [background]="pokemon.sprites.front_default"></app-badge>
-          <li>
-            Abilities:
-            <ul>
-              <li *ngFor="let ab of pokemon.abilities">
-                {{ ab.ability.name }}
-              </li>
-            </ul>
-          </li>
         </div>
+        <app-badge
+          key="Abilities"
+          [value]="pokemon.abilities | pokemonAbilities"
+          [background]="pokemon.sprites.front_default"></app-badge>
         <li id="status-list">
           <span>Stats:</span>
           <ul>
