@@ -1,3 +1,4 @@
+import { PokemonAbilitiesPipe } from './../../../pipes/pokemon-abilities.pipe';
 import { Router } from '@angular/router';
 import { PokemonsService } from './../../../services/pokemons.service';
 import { ModalComponent } from './modal.component';
@@ -8,7 +9,7 @@ import { homeRoutes } from '../pokemons.routing';
 const sut = async () => {
   await render(ModalComponent, {
     componentProperties: {},
-    declarations: [],
+    declarations: [PokemonAbilitiesPipe],
     providers: [PokemonsService],
     imports: [HttpClientModule],
     routes: homeRoutes,

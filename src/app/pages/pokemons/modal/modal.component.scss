@@ -72,12 +72,12 @@
         right: 15px;
         display: flex;
 
-        img + img {
-          margin-left: 4px;
-        }
-
         img {
           cursor: pointer;
+        }
+
+        img + img {
+          margin-left: 4px;
         }
       }
 
@@ -164,6 +164,7 @@
 
   #status-list {
     margin: 10px 0;
+
     span {
       font-weight: bold;
       margin-left: 15px;
